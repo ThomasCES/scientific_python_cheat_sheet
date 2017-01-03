@@ -95,30 +95,6 @@ del a['red']                                 # delete key and associated with it
 a.pop('blue')                                # remove specified key and return the corresponding value
 ```
 
-
-### Sets
-
-```python
-a = {1, 2, 3}                                # initialize manually
-b = set(range(5))                            # initialize from iteratable
-a.add(13)                                    # add new element to set
-a.discard(13)                                # discard element from set
-a.update([21, 22, 23])                       # update set with elements from iterable
-a.pop()                                      # remove and return an arbitrary set element
-2 in {1, 2, 3}                               # true if 2 in set
-5 not in {1, 2, 3}                           # true if 5 not in set
-a.issubset(b)                                # test whether every element in a is in b
-a <= b                                       # issubset in operator form
-a.issuperset(b)                              # test whether every element in b is in a
-a >= b                                       # issuperset in operator form
-a.intersection(b)                            # return the intersection of two sets as a new set
-a.difference(b)                              # return the difference of two or more sets as a new set
-a - b                                        # difference in operator form
-a.symmetric_difference(b)                    # return the symmetric difference of two sets as a new set
-a.union(b)                                   # return the union of sets as a new set
-c = frozenset()                              # the same as set but immutable
-```
-
 ### Strings
 
 ```python
@@ -190,7 +166,7 @@ for i in range(20):
     print(i)
 ```
 
-### Functions, Classes, Generators, Decorators
+### Functions, Classes,
 
 ```python
 # Function groups code statements and possibly
@@ -209,87 +185,6 @@ class Point(object):
         print(self.x)
 
 x = Point(3)
-
-# Generator iterates without
-# creating all values at ones
-def firstn(n):
-    num = 0
-    while num < n:
-        yield num
-        num += 1
-
-x = [i for i in firstn(10)]
-
-# Decorator can be used to modify
-# the behaviour of a function
-class myDecorator(object):
-    def __init__(self, f):
-        self.f = f
-    def __call__(self):
-        print("call")
-        self.f()
-
-@myDecorator
-def my_funct():
-    print('func')
-
-my_funct()
-```
-
-## IPython
-
-### console
-```python
-<object>?                   # Information about the object
-<object>.<TAB>              # tab completion
-
-# run scripts / profile / debug
-%run myscript.py
-
-%timeit range(1000)         # measure runtime of statement
-%run -t  myscript.py        # measure script execution time
-
-%prun <statement>           # run statement with profiler
-%prun -s <key> <statement>  # sort by key, e.g. "cumulative" or "calls"
-%run -p  myfile.py          # profile script
-
-%run -d myscript.py         # run script in debug mode
-%debug                      # jumps to the debugger after an exception
-%pdb                        # run debugger automatically on exception
-
-# examine history
-%history
-%history ~1/1-5  # lines 1-5 of last session
-
-# run shell commands
-!make  # prefix command with "!"
-
-# clean namespace
-%reset
-
-# run code from clipboard
-%paste
-```
-
-### debugger
-```python
-n               # execute next line
-b 42            # set breakpoint in the main file at line 42
-b myfile.py:42  # set breakpoint in 'myfile.py' at line 42
-c               # continue execution
-l               # show current position in the code
-p data          # print the 'data' variable
-pp data         # pretty print the 'data' variable
-s               # step into subroutine
-a               # print arguments that a function received
-pp locals()     # show all variables in local scope
-pp globals()    # show all variables in global scope
-```
-
-### command line
-```bash
-ipython --pdb -- myscript.py argument1 --option1  # debug after exception
-ipython -i -- myscript.py argument1 --option1     # console after finish
 ```
 
 ## NumPy (`import numpy as np`)
@@ -362,7 +257,6 @@ a + 5              # addition with scalar
 a + b              # addition with array b
 a / b              # division with b (np.NaN for division by zero)
 np.exp(a)          # exponential (complex and real)
-np.power(a, b)     # a to the power b
 np.sin(a)          # sine
 np.cos(a)          # cosine
 np.arctan2(a, b)   # arctan(a/b)
@@ -371,19 +265,10 @@ np.radians(a)      # degrees to radians
 np.degrees(a)      # radians to degrees
 np.var(a)          # variance of array
 np.std(a, axis=1)  # standard deviation
-```
-
-### inner/ outer products
-
-```python
-np.dot(a, b)                  # inner product: a_mi b_in
-np.einsum('ij,kj->ik', a, b)  # einstein summation convention
+np.dot(a, b)                  # matrix product (inner product: a_mi b_in)
 np.sum(a, axis=1)             # sum over axis 1
 np.abs(a)                     # return absolute values
-a[None, :] + b[:, None]       # outer sum
-a[None, :] * b[:, None]       # outer product
-np.outer(a, b)                # outer product
-np.sum(a * a.T)               # matrix norm
+np.round(a)  # rounds to neares int
 ```
 
 
@@ -398,13 +283,8 @@ evals, evecs = np.linalg.eigh(a)     # np.linalg.eig for hermitian matrix
 ### reading/ writing files
 
 ```python
-
 np.loadtxt(fname/fobject, skiprows=2, delimiter=',')   # ascii data from file
 np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
-np.fromfile(fname/fobject, dtype=np.float32, count=5)  # binary data from file
-np.tofile(fname/fobject)                               # write (C) binary data
-np.save(fname/fobject, array)                          # save as numpy binary (.npy)
-np.load(fname/fobject, mmap_mode='c')                  # load .npy file (memory mapped)
 ```
 
 ### interpolation, integration, optimization
@@ -415,33 +295,14 @@ np.interp(x, xp, yp)      # interpolate function xp, yp at points x
 np.linalg.lstsq(a, b)     # solve a x = b in least square sense
 ```
 
-### fft
-
-```python
-np.fft.fft(a)                # complex fourier transform of a
-f = np.fft.fftfreq(len(a))   # fft frequencies
-np.fft.fftshift(f)           # shifts zero frequency to the middle
-np.fft.rfft(a)               # real fourier transform of a
-np.fft.rfftfreq(len(a))      # real fft frequencies
-```
-
-### rounding
-
-```python
-np.ceil(a)   # rounds to nearest upper int
-np.floor(a)  # rounds to nearest lower int
-np.round(a)  # rounds to neares int
-```
-
 ### random variables
 
 ```python
-from np.random import normal, seed, rand, uniform, randint
-normal(loc=0, scale=2, size=100)  # 100 normal distributed
-seed(23032)                       # resets the seed value
-rand(200)                         # 200 random numbers in [0, 1)
-uniform(1, 30, 200)               # 200 random numbers in [1, 30)
-randint(1, 16, 300)               # 300 random integers in [1, 16)
+np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed
+np.random.rand(200)                         # 200 random numbers in [0, 1)
+np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
+np.random.randint(1, 16, 300)               # 300 random integers in [1, 16)
+np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random number choose in a list
 ```
 
 ## Matplotlib (`import matplotlib.pyplot as plt`)
@@ -470,11 +331,8 @@ ax.set_ylabel('ybla')            # set ylabel
 ax.set_xlim(1, 2)                # sets x limits
 ax.set_ylim(3, 4)                # sets y limits
 ax.set_title('blabla')           # sets the axis title
-ax.set(xlabel='bla')             # set multiple parameters at once
 ax.legend(loc='upper center')    # activate legend
-ax.grid(True, which='both')      # activate grid
 bbox = ax.get_position()         # returns the axes bounding box
-bbox.x0 + bbox.width             # bounding box parameters
 ```
 
 ### plotting routines
@@ -516,17 +374,6 @@ from scipy.integrate import quad     # definite integral of python
 value = quad(func, low_lim, up_lim)  # function/method
 ```
 
-### linear algebra
-
-```python
-from scipy import linalg
-evals, evecs = linalg.eig(a)      # Find eigenvalues and eigenvectors
-evals, evecs = linalg.eigh(a)     # linalg.eig for hermitian matrix
-b = linalg.expm(a)                # Matrix exponential
-c = linalg.logm(a)                # Matrix logarithm
-```
-
-
 ## Pandas (`import pandas as pd`)
 
 ### Data structures
@@ -534,7 +381,7 @@ c = linalg.logm(a)                # Matrix logarithm
 s = pd.Series(np.random.rand(1000), index=range(1000))  # series
 index = pd.date_range("13/06/2016", periods=1000)       # time index
 df = pd.DataFrame(np.zeros((1000, 3)), index=index,
-                    columns=["A", "B", "C"])            # DataFrame
+                    columns=["A", "B", "C"])            # DataFrame   
 ```
 
 ### DataFrame
@@ -542,5 +389,7 @@ df = pd.DataFrame(np.zeros((1000, 3)), index=index,
 df = pd.read_csv("filename.csv")   # read and load CSV file in a DataFrame
 print(df[:2])                      # print first 2 lines of the DataFrame
 raw = df.values                    # get raw data out of DataFrame object
+a = df['A'].values                 # get  the 'A' raw data out of DataFrame object
 cols = df.columns                  # get list of columns headers
+df2 = df[df['A'] == 0]             # creat a new DataFrame from df under condition 
 ```
