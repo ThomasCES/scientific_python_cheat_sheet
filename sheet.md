@@ -265,10 +265,10 @@ np.radians(a)      # degrees to radians
 np.degrees(a)      # radians to degrees
 np.var(a)          # variance of array
 np.std(a, axis=1)  # standard deviation
-np.dot(a, b)                  # matrix product (inner product: a_mi b_in)
-np.sum(a, axis=1)             # sum over axis 1
-np.abs(a)                     # return absolute values
-np.round(a)  # rounds to neares int
+np.dot(a, b)       # matrix product (inner product: a_mi b_in)
+np.sum(a, axis=1)  # sum over axis 1
+np.abs(a)          # return absolute values
+np.round(a)        # rounds to neares int
 ```
 
 
@@ -276,7 +276,6 @@ np.round(a)  # rounds to neares int
 
 ```python
 evals, evecs = np.linalg.eig(a)      # Find eigenvalues and eigenvectors
-evals, evecs = np.linalg.eigh(a)     # np.linalg.eig for hermitian matrix
 ```
 
 
@@ -302,7 +301,7 @@ np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed
 np.random.rand(200)                         # 200 random numbers in [0, 1)
 np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
 np.random.randint(1, 16, 300)               # 300 random integers in [1, 16)
-np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random number choose in a list
+np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random number choose in a list with p probability
 ```
 
 ## Matplotlib (`import matplotlib.pyplot as plt`)
@@ -352,28 +351,6 @@ ax.specgram(y, FS=0.1, noverlap=128,
 ax.text(x, y, string, fontsize=12, color='m')   # write text
 ```
 
-## Scipy (`import scipy as sci`)
-
-### interpolation
-
-```python
-# interpolate data at index positions:
-from scipy.ndimage import map_coordinates
-pts_new = map_coordinates(data, float_indices, order=3)
-
-# simple 1d interpolator with axis argument:
-from scipy.interpolate import interp1d
-interpolator = interp1d(x, y, axis=2, fill_value=0., bounds_error=False)
-y_new = interpolator(x_new)
-```
-
-### Integration
-
-```python
-from scipy.integrate import quad     # definite integral of python
-value = quad(func, low_lim, up_lim)  # function/method
-```
-
 ## Pandas (`import pandas as pd`)
 
 ### Data structures
@@ -391,5 +368,5 @@ print(df[:2])                      # print first 2 lines of the DataFrame
 raw = df.values                    # get raw data out of DataFrame object
 a = df['A'].values                 # get  the 'A' raw data out of DataFrame object
 cols = df.columns                  # get list of columns headers
-df2 = df[df['A'] == 0]             # creat a new DataFrame from df under condition 
+df2 = df[df['A'] == 0]             # create a new DataFrame from df selecting raws under condition 
 ```
