@@ -258,7 +258,7 @@ np.round(a)        # rounds to neares int
 
 ### linear algebra/ matrix math
 
-```ipython
+```python
 evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
 coef = np.polyfit(x,y,2)          # return values of polinomial factors (2nd order in the example)
 coef = np.corrcoef(x,y)           # return correlation coefficients (R²)
