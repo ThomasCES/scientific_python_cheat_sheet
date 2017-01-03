@@ -8,36 +8,25 @@ Scientific Python Cheatsheet
         - [Types](#types)
         - [Lists](#lists)
         - [Dictionaries](#dictionaries)
-        - [Sets](#sets)
         - [Strings](#strings)
         - [Operators](#operators)
         - [Control Flow](#control-flow)
-        - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
-    - [IPython](#ipython)
-        - [console](#console)
-        - [debugger](#debugger)
-        - [command line](#command-line)
+        - [Functions, Classes](#functions-classes)
     - [NumPy](#numpy-import-numpy-as-np)
         - [array initialization](#array-initialization)
         - [indexing](#indexing)
         - [array properties and operations](#array-properties-and-operations)
         - [boolean arrays](#boolean-arrays)
         - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
-        - [inner/ outer products](#inner-outer-products)
         - [linear algebra/ matrix math](#linear-algebra-matrix-math)
         - [reading/ writing files](#reading-writing-files)
         - [interpolation, integration, optimization](#interpolation-integration-optimization)
-        - [fft](#fft)
         - [rounding](#rounding)
         - [random variables](#random-variables)
     - [Matplotlib](#matplotlib-import-matplotlib.pyplot-as-plt)
         - [figures and axes](#figures-and-axes)
         - [figures and axes properties](#figures-and-axes-properties)
         - [plotting routines](#plotting-routines)
-    - [Scipy](#scipy-import-scipy-as-sci)
-        - [interpolation](#interpolation)
-        - [linear algebra](#linear-algebra)
-        - [integration](#integration)
     - [Pandas](#pandas-import-pandas-as-pd)
         - [data structures](#data-structures)
         - [DataFrame](#dataframe)
@@ -85,14 +74,11 @@ a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
 b = a['red']                                 # translate item
 'red' in a                                   # true if dictionary a contains key 'red'
 c = [value for key, value in a.items()]      # loop through contents
-d = a.get('yellow', 'no translation found')  # return default
-a.setdefault('extra', []).append('cyan')     # init key with default
 a.update({'green': 'vert', 'brown': 'brun'}) # update dictionary by data from another one
 a.keys()                                     # get list of keys
 a.values()                                   # get list of values
 a.items()                                    # get list of key-value pairs
 del a['red']                                 # delete key and associated with it value
-a.pop('blue')                                # remove specified key and return the corresponding value
 ```
 
 ### Strings
@@ -102,6 +88,7 @@ a = 'red'                      # assignment
 char = a[2]                    # access individual characters
 'red ' + 'blue'                # string concatenation
 '1, 2, three'.split(',')       # split string into list
+'1, 2, three'.replace(',','.') #replace characters by other one (',' by '.' in the example)
 '.'.join(['1', '2', 'three'])  # concatenate list into string
 ```
 
@@ -228,8 +215,6 @@ len(a)                 # length of axis 0
 a.ndim                 # number of dimensions (axes)
 a.sort(axis=1)         # sort array along axis
 a.flatten()            # collapse array to one dimension
-a.conj()               # return complex conjugate
-a.astype(np.int16)     # cast to integer
 a.tolist()             # convert (possibly multidimensional) array to list
 np.argmax(a, axis=1)   # return index of maximum along a given axis
 np.cumsum(a)           # return cumulative sum
@@ -271,13 +256,13 @@ np.abs(a)          # return absolute values
 np.round(a)        # rounds to neares int
 ```
 
-
 ### linear algebra/ matrix math
 
-```python
-evals, evecs = np.linalg.eig(a)      # Find eigenvalues and eigenvectors
+```ipython
+evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
+coef = np.polyfit(x,y,2)          # return values of polinomial factors (2nd order in the example)
+coef = np.corrcoef(x,y)           # return correlation coefficients (R²)
 ```
-
 
 ### reading/ writing files
 
