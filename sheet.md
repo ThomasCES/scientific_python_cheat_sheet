@@ -131,7 +131,11 @@ else:
 a = ['red', 'blue', 'green']
 for color in a:
     print(color)
-
+    
+# for (bis
+for i in range:
+    print(i**2)
+    
 # while
 number = 1
 while number < 10:
@@ -180,9 +184,8 @@ x = Point(3)
 
 ```python
 np.array([2, 3, 4])             # direct initialization
-np.empty(20, dtype=np.float32)  # single precision array of size 20
 np.zeros(200)                   # initialize 200 zeros
-np.ones((3,3), dtype=np.int32)  # 3 x 3 integer matrix with ones
+np.ones((3,3))  # 3 x 3 integer matrix with ones
 np.eye(200)                     # ones on the diagonal
 np.zeros_like(a)                # array with zeros and the shape of a
 np.linspace(0., 10., 100)       # 100 points from 0 to 10
@@ -352,6 +355,6 @@ a = df['A'].values                 # get the 'A' column out of DF
 a = df.iloc[5,8]                   # get element (indexe [5,8]) out of DF
 cols = df.columns                  # get list of columns names
 df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
-df2 = df.fillna(value = 5)         # replace "empty cell by 5 in DF 
+df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF 
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition 
 ```
