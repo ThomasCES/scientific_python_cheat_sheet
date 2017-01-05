@@ -39,9 +39,9 @@ Scientific Python Cheatsheet
 ```python
 a = 2           # integer
 b = 5.0         # float
-c = 8.3e5       # exponential
+c = 8.3e5       # = 8.3 * 10**5
 d = 1.5 + 0.5j  # complex
-e = 4 > 5       # boolean
+e = 4 > 5       # boolean (False)
 f = 'word'      # string
 ```
 
@@ -71,7 +71,7 @@ a.pop(2)                           # remove and return item at index (default la
 
 ```python
 a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
-b = a['red']                                 # translate item
+b = a['red']                                 # call item
 'red' in a                                   # true if dictionary a contains key 'red'
 c = [value for key, value in a.items()]      # loop through contents
 a.update({'green': 'vert', 'brown': 'brun'}) # update dictionary by data from another one
@@ -86,9 +86,9 @@ del a['red']                                 # delete key and associated with it
 ```python
 a = 'red'                      # assignment
 char = a[2]                    # access individual characters
-'red ' + 'blue'                # string concatenation
+'red ' + 'blue'                # string concatenation ( ='redblue')
 '1, 2, three'.split(',')       # split string into list
-'1, 2, three'.replace(',','.') #replace characters by other one (',' by '.' in the example)
+'1, 2, three'.replace(',','.') #replace character by other one (',' by '.' in the example)
 '.'.join(['1', '2', 'three'])  # concatenate list into string
 ```
 
@@ -99,14 +99,14 @@ a = 2             # assignment
 a += 1 (*=, /=)   # change and assign
 3 + 2             # addition
 3 / 2             # integer (python2) or float (python3) division
-3 // 2            # integer division
+3 // 2            # integer division (division euclidienne)
 3 * 2             # multiplication
 3 ** 2            # exponent
-3 % 2             # remainder
+3 % 2             # remainder (reste de la division euclidienne)
 abs(a)            # absolute value
-1 == 1            # equal
-2 > 1             # larger
-2 < 1             # smaller
+1 == 1            # equal (= True)
+2 > 1             # larger (= Trus)
+2 < 1             # smaller(= False)
 1 != 2            # not equal
 1 != 2 and 2 < 3  # logical AND
 1 != 2 or 2 < 3   # logical OR
@@ -201,28 +201,28 @@ a[:-3] = 2                  # set all but last three elements to 2
 a[start:stop:step]          # general form of indexing/slicing
 a[None, :]                  # transform to column vector
 a[[1, 1, 3, 8]]             # return array with values of the indices
-a = a.reshape(10, 10)       # transform to 10 x 10 matrix
-a.T                         # return transposed view
-b = np.transpose(a, (1, 0)) # transpose array to new axis order
 a[a < 2]                    # values with elementwise condition
 ```
 
 ### array properties and operations
 
 ```python
-a.shape                # a tuple with the lengths of each axis
-len(a)                 # length of axis 0
-a.ndim                 # number of dimensions (axes)
-a.sort(axis=1)         # sort array along axis
-a.flatten()            # collapse array to one dimension
-a.tolist()             # convert (possibly multidimensional) array to list
-np.argmax(a, axis=1)   # return index of maximum along a given axis
-np.cumsum(a)           # return cumulative sum
-np.any(a)              # True if any element is True
-np.all(a)              # True if all elements are True
-np.argsort(a, axis=1)  # return sorted index array along axis
-np.where(cond)         # return indices where cond is True
-np.where(cond, x, y)   # return elements from x or y depending on cond
+a.shape                     # a tuple with the lengths of each axis
+len(a)                      # length of axis 0
+a.ndim                      # number of dimensions (axes)
+a.sort(axis=1)              # sort array along axis
+a.flatten()                 # collapse array to one dimension
+a = a.reshape(10, 10)       # transform to 10 x 10 matrix
+a.T                         # return transposed view
+b = np.transpose(a, (1, 0)) # transpose array to new axis order
+a.tolist()                  # convert (possibly multidimensional) array to list
+np.argmax(a, axis=1)        # return index of maximum along a given axis
+np.cumsum(a)                # return cumulative sum
+np.any(a)                   # True if any element is True
+np.all(a)                   # True if all elements are True
+np.argsort(a, axis=1)       # return sorted index array along axis
+np.where(cond)              # return indices where cond is True
+np.where(cond, x, y)        # return elements from x or y depending on cond
 ```
 
 ### boolean arrays
@@ -277,6 +277,8 @@ np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
 np.trapz(a, x=x, axis=1)  # integrate along axis 1
 np.interp(x, xp, yp)      # interpolate function xp, yp at points x
 np.linalg.lstsq(a, b)     # solve a x = b in least square sense
+np.linalg.det(a)          # compute the determiant of a (n,n)
+np.linalg.eigvals(a)      # compute the eigenvalues of a
 ```
 
 ### random variables
@@ -286,7 +288,7 @@ np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed
 np.random.rand(200)                         # 200 random numbers in [0, 1)
 np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
 np.random.randint(1, 16, 300)               # 300 random integers in [1, 16)
-np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random number choose in a list with p probability
+np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random numbers choose in a list with p probability
 ```
 
 ## Matplotlib (`import matplotlib.pyplot as plt`)
@@ -294,46 +296,40 @@ np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random number choose in a list w
 ### figures and axes
 
 ```python
-fig = plt.figure(figsize=(5, 2))  # initialize figure
-fig.savefig('out.png')            # save png image
-fig, axes = plt.subplots(5, 2, figsize=(5, 5)) # fig and 5 x 2 nparray of axes
-ax = fig.add_subplot(3, 2, 2)     # add second subplot in a 3 x 2 grid
-ax = plt.subplot2grid((2, 2), (0, 0), colspan=2)  # multi column/row axis
-ax = fig.add_axes([left, bottom, width, height])  # add custom axis
+plt.figure(1)  # initialize figure
+fig, axes = plt.subplots(5, 2, figsize=(5, 5)) # figure with 10 plots and 5 x 2 axes
+plt.savefig('out.png', bbox_inches='tight')     # save png image
 ```
 
 ### figures and axes properties
 
 ```python
-fig.suptitle('title')            # big figure title
+plt.title('title')            # figure title
 fig.subplots_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
                     hspace=0.5)  # adjust subplot positions
 fig.tight_layout(pad=0.1, h_pad=0.5, w_pad=0.5,
                  rect=None)      # adjust subplots to fit into fig
-ax.set_xlabel('xbla')            # set xlabel
-ax.set_ylabel('ybla')            # set ylabel
-ax.set_xlim(1, 2)                # sets x limits
-ax.set_ylim(3, 4)                # sets y limits
-ax.set_title('blabla')           # sets the axis title
-ax.legend(loc='upper center')    # activate legend
-bbox = ax.get_position()         # returns the axes bounding box
+plt.xlabel('xbla')            # set xlabel
+plt.ylabel('ybla')            # set ylabel
+plt.xlim(1, 2)                # sets x limits
+plt.ylim(3, 4)                # sets y limits
+plt.legend(['case A','case B'], loc='best')    # activate legend
 ```
 
 ### plotting routines
 
 ```python
-ax.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
-ax.scatter(x,y, s=20, c=color)                  # scatter plot
-ax.pcolormesh(xx, yy, zz, shading='gouraud')    # fast colormesh
-ax.colormesh(xx, yy, zz, norm=norm)             # slower colormesh
-ax.contour(xx, yy, zz, cmap='jet')              # contour lines
-ax.contourf(xx, yy, zz, vmin=2, vmax=4)         # filled contours
-n, bins, patch = ax.hist(x, 50)                 # histogram
-ax.imshow(matrix, origin='lower',
-          extent=(x1, x2, y1, y2))              # show image
+plt.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
+plt.scatter(x,y, s=20, c=color)                  # scatter plot
+plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
+plt.contour(xx, yy, zz, cmap='jet')              # contour lines
+plt.contourf(xx, yy, zz, vmin=2, vmax=4)         # filled contours
+plt.hist(x, bins=50)                             # histogram
+plt.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2),
+        interpolation='bilinear', aspect='auto') # image (carpet plot, heat map)
 ax.specgram(y, FS=0.1, noverlap=128,
-            scale='linear')                     # plot a spectrogram
-ax.text(x, y, string, fontsize=12, color='m')   # write text
+            scale='linear')                      # spectrogram
+ax.text(x, y, string, fontsize=12, color='m')    # write text
 ```
 
 ## Pandas (`import pandas as pd`)
