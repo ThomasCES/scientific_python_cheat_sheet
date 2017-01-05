@@ -342,12 +342,16 @@ df = pd.DataFrame(np.zeros((1000, 3)), index=index,
                     columns=["A", "B", "C"])            # DataFrame   
 ```
 
-### DataFrame
+### DataFrame (DF)
 ```python
-df = pd.read_csv("filename.csv")   # read and load CSV file in a DataFrame
-print(df[:2])                      # print first 2 lines of the DataFrame
-raw = df.values                    # get raw data out of DataFrame object
-a = df['A'].values                 # get  the 'A' raw data out of DataFrame object
-cols = df.columns                  # get list of columns headers
-df2 = df[df['A'] == 0]             # create a new DataFrame from df selecting raws under condition 
+df = pd.read_csv("filename.csv")   # read and load CSV (or .txt) file in a DF
+df = pd.read_excel("filename.xls") # read and load excel sheet in a DF
+print(df[:2])                      # print first 2 lines of the DF
+a = df.values                      # get data out of DF
+a = df['A'].values                 # get the 'A' column out of DF
+a = df.iloc[5,8]                   # get element (indexe [5,8]) out of DF
+cols = df.columns                  # get list of columns names
+df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
+df2 = df.fillna(value = 5)         # replace "empty cell by 5 in DF 
+df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition 
 ```
