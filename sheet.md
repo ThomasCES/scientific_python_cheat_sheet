@@ -132,8 +132,8 @@ a = ['red', 'blue', 'green']
 for color in a:
     print(color)
     
-# for (bis
-for i in range:
+# for (bis)
+for i in range(0,10):
     print(i**2)
     
 # while
