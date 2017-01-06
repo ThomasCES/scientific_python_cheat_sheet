@@ -88,7 +88,7 @@ a = 'red'                      # assignment
 char = a[2]                    # access individual characters
 'red ' + 'blue'                # string concatenation ( ='redblue')
 '1, 2, three'.split(',')       # split string into list
-'1, 2, three'.replace(',','.') #replace character by other one (',' by '.' in the example)
+'1, 2, three'.replace(',','.') # replace character by other one (',' by '.' in the example)
 '.'.join(['1', '2', 'three'])  # concatenate list into string
 ```
 
@@ -183,9 +183,9 @@ x = Point(3)
 ### array initialization
 
 ```python
-np.array([2, 3, 4])             # direct initialization
-np.zeros(200)                   # initialize 200 zeros
-np.ones((3,3))  # 3 x 3 integer matrix with ones
+np.array([2, 3, 4])             # vector, direct initialization
+np.zeros(200)                   # vector initialized with 200 zeros
+np.ones((3,3))                  # 3 x 3 integer matrix with ones
 np.eye(200)                     # ones on the diagonal
 np.zeros_like(a)                # array with zeros and the shape of a
 np.linspace(0., 10., 100)       # 100 points from 0 to 10
@@ -197,7 +197,6 @@ np.copy(a)                      # copy array to new memory
 ### indexing
 
 ```python
-a = np.arange(100)          # initialization with 0 - 99
 a[:3] = 0                   # set the first three indices to zero
 a[2:5] = 1                  # set indices 2-4 to 1
 a[:-3] = 2                  # set all but last three elements to 2
@@ -300,7 +299,7 @@ np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random numbers choose in a list 
 
 ```python
 plt.figure(1)  # initialize figure
-fig, axes = plt.subplots(5, 2, figsize=(5, 5)) # figure with 10 plots and 5 x 2 axes
+fig, axes = plt.subplots(5, 2, figsize=(5, 5))  # figure with 10 plots and 5 x 2 axes
 plt.savefig('out.png', bbox_inches='tight')     # save png image
 ```
 
@@ -339,22 +338,23 @@ ax.text(x, y, string, fontsize=12, color='m')    # write text
 
 ### Data structures
 ```python
-s = pd.Series(np.random.rand(1000), index=range(1000))  # series
-index = pd.date_range("13/06/2016", periods=1000)       # time index
-df = pd.DataFrame(np.zeros((1000, 3)), index=index,
-                    columns=["A", "B", "C"])            # DataFrame   
+df = pd.DataFrame()       #create an empty DataFrame
+df['A'] = [0, 1, 'lundi', 3, 4] # store list in 'A' column
+df['B'] = np.arange(5) # store array in 'B' column
 ```
 
 ### DataFrame (DF)
 ```python
 df = pd.read_csv("filename.csv")   # read and load CSV (or .txt) file in a DF
 df = pd.read_excel("filename.xls") # read and load excel sheet in a DF
+pd.to_excel("filename.xls")        # save DF in excel file
+pd.to_csv("filename.csv")          # save DF in text file
 print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
-a = df.iloc[5,8]                   # get element (indexe [5,8]) out of DF
+a = df.iloc[2,3]                   # get element (indexe [2,3]) out of DF
 cols = df.columns                  # get list of columns names
 df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
 df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF 
-df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition 
+df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
 ```
