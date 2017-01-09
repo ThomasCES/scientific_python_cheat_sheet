@@ -1,9 +1,10 @@
 Scientific Python Cheatsheet
 ============================
 
-## Pure Python
+# Pure Python
 
 ### Types
+
 ```python
 a = 2           # integer
 b = 5.0         # float
@@ -11,6 +12,38 @@ c = 8.3e5       # = 8.3 * 10**5
 d = 1.5 + 0.5j  # complex
 e = 4 > 5       # boolean (False)
 f = 'word'      # string
+```
+### Operators
+
+```python
+a = 2             # assignment
+a += 1 (*=, /=)   # change and assign (a = a + 1) 
+3 + 2             # addition
+3 / 2             # integer (python2) or float (python3) division
+3 // 2            # integer division (division euclidienne)
+3 * 2             # multiplication
+3 ** 2            # exponent
+3 % 2             # remainder (reste de la division euclidienne)
+abs(a)            # absolute value
+1 == 1            # equal (= True)
+2 > 1             # larger (= Trus)
+2 < 1             # smaller(= False)
+1 != 2            # not equal
+1 != 2 and 2 < 3  # logical AND
+1 != 2 or 2 < 3   # logical OR
+not 1 == 2        # logical NOT
+a is b            # test if objects point to the same memory (id)
+```
+
+### Strings
+
+```python
+a = 'red'                      # assignment
+char = a[2]                    # access individual characters
+'red ' + 'blue'                # string concatenation ( ='redblue')
+'1, 2, three'.split(',')       # split string into list
+'1, 2, three'.replace(',','.') # replace character by other one (',' by '.' in the example)
+'.'.join(['1', '2', 'three'])  # concatenate list into string
 ```
 
 ### Lists
@@ -49,41 +82,7 @@ a.items()                                    # get list of key-value pairs
 del a['red']                                 # delete key and associated with it value
 ```
 
-### Strings
-
-```python
-a = 'red'                      # assignment
-char = a[2]                    # access individual characters
-'red ' + 'blue'                # string concatenation ( ='redblue')
-'1, 2, three'.split(',')       # split string into list
-'1, 2, three'.replace(',','.') # replace character by other one (',' by '.' in the example)
-'.'.join(['1', '2', 'three'])  # concatenate list into string
-```
-
-### Operators
-
-```python
-a = 2             # assignment
-a += 1 (*=, /=)   # change and assign
-3 + 2             # addition
-3 / 2             # integer (python2) or float (python3) division
-3 // 2            # integer division (division euclidienne)
-3 * 2             # multiplication
-3 ** 2            # exponent
-3 % 2             # remainder (reste de la division euclidienne)
-abs(a)            # absolute value
-1 == 1            # equal (= True)
-2 > 1             # larger (= Trus)
-2 < 1             # smaller(= False)
-1 != 2            # not equal
-1 != 2 and 2 < 3  # logical AND
-1 != 2 or 2 < 3   # logical OR
-not 1 == 2        # logical NOT
-'a' in b          # test if a is in b
-a is b            # test if objects point to the same memory (id)
-```
-
-### Control Flow
+### Control Flow : if, for, while
 
 ```python
 # if/elif/else
@@ -128,12 +127,11 @@ for i in range(20):
 ### Functions, Classes,
 
 ```python
-# Function groups code statements and possibly
-# returns a derived value
+# Function groups code statements and returns a value
 def myfunc(a1, a2):
     return a1 + a2
 
-x = myfunc(a1, a2)
+x = myfunc(a1, a2)  #utilisation de la fonction
 
 # Class groups attributes (data)
 # and associated methods (functions)
@@ -274,14 +272,10 @@ plt.savefig('out.png', bbox_inches='tight')     # save png image
 
 ```python
 plt.title('title')            # figure title
-fig.subplots_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
-                    hspace=0.5)  # adjust subplot positions
-fig.tight_layout(pad=0.1, h_pad=0.5, w_pad=0.5,
-                 rect=None)      # adjust subplots to fit into fig
 plt.xlabel('xbla')            # set xlabel
 plt.ylabel('ybla')            # set ylabel
-plt.xlim(1, 2)                # sets x limits
-plt.ylim(3, 4)                # sets y limits
+plt.xlim(0, 2)                # sets x limits
+plt.ylim(0, 4)                # sets y limits
 plt.legend(['case A','case B'], loc='best')    # show legend
 plt.tight_layout()            # auto-sizing figure 
 plt.savefig('fig.png')        # save figure in .png format
