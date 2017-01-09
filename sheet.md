@@ -236,8 +236,8 @@ coef = np.corrcoef(x,y)           # return correlation coefficients (R²)
 ### reading/ writing files
 
 ```python
-np.loadtxt(fname/fobject, skiprows=2, delimiter=',')   # ascii data from file
-np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
+np.loadtxt('data.txt', skiprows=2, delimiter=';')   # ascii data from file
+np.savetxt('data.txt', array, fmt='%1.4e')           # write ascii data
 ```
 
 ### interpolation, integration, optimization
