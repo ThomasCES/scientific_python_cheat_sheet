@@ -28,8 +28,8 @@ Scientific Python Cheatsheet
         - [figures and axes properties](#figures-and-axes-properties)
         - [plotting routines](#plotting-routines)
     - [Pandas](#pandas-import-pandas-as-pd)
-        - [data structures](#data-structures)
-        - [DataFrame](#dataframe)
+        - [DataFrame](#data-structures)
+        - [read/write data](#dataframe)
         
 <!-- markdown-toc end -->
 
@@ -318,7 +318,7 @@ plt.ylim(3, 4)                # sets y limits
 plt.legend(['case A','case B'], loc='best')    # activate legend
 ```
 
-### plotting routines
+### plotting
 
 ```python
 plt.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
@@ -336,19 +336,11 @@ ax.text(x, y, string, fontsize=12, color='m')    # write text
 
 ## Pandas (`import pandas as pd`)
 
-### Data structures
+### DataFrame (DF)
 ```python
 df = pd.DataFrame()       #create an empty DataFrame
 df['A'] = [0, 1, 'lundi', 3, 4] # store list in 'A' column
 df['B'] = np.arange(5) # store array in 'B' column
-```
-
-### DataFrame (DF)
-```python
-df = pd.read_csv("filename.csv")   # read and load CSV (or .txt) file in a DF
-df = pd.read_excel("filename.xls") # read and load excel sheet in a DF
-pd.to_excel("filename.xls")        # save DF in excel file
-pd.to_csv("filename.csv")          # save DF in text file
 print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
@@ -357,4 +349,12 @@ cols = df.columns                  # get list of columns names
 df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
 df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF 
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
+```
+
+### read/write data
+```python
+df = pd.read_csv("filename.csv")   # read and load CSV (or .txt) file in a DF
+df = pd.read_excel("filename.xls") # read and load excel sheet in a DF
+pd.to_excel("filename.xls")        # save DF in excel file
+pd.to_csv("filename.csv")          # save DF in text file
 ```
