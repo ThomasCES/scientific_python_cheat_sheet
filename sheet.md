@@ -282,7 +282,9 @@ plt.xlabel('xbla')            # set xlabel
 plt.ylabel('ybla')            # set ylabel
 plt.xlim(1, 2)                # sets x limits
 plt.ylim(3, 4)                # sets y limits
-plt.legend(['case A','case B'], loc='best')    # activate legend
+plt.legend(['case A','case B'], loc='best')    # show legend
+plt.tight_layout()            # auto-sizing figure 
+plt.savefig('fig.png')        # save figure in .png format
 ```
 
 ### plotting
