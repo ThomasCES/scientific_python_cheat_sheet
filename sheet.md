@@ -1,37 +1,5 @@
 Scientific Python Cheatsheet
 ============================
-<!-- markdown-toc start - Don't forget to edit this section according to your modifications -->
-**Table of Contents**
-
-- [Scientific Python Cheatsheet](#scientific-python-cheatsheet)
-    - [Pure Python](#pure-python)
-        - [Types](#types)
-        - [Lists](#lists)
-        - [Dictionaries](#dictionaries)
-        - [Strings](#strings)
-        - [Operators](#operators)
-        - [Control Flow](#control-flow)
-        - [Functions, Classes](#functions-classes)
-    - [NumPy](#numpy-import-numpy-as-np)
-        - [array initialization](#array-initialization)
-        - [indexing](#indexing)
-        - [array properties and operations](#array-properties-and-operations)
-        - [boolean arrays](#boolean-arrays)
-        - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
-        - [linear algebra/ matrix math](#linear-algebra-matrix-math)
-        - [reading/ writing files](#reading-writing-files)
-        - [interpolation, integration, optimization](#interpolation-integration-optimization)
-        - [rounding](#rounding)
-        - [random variables](#random-variables)
-    - [Matplotlib](#matplotlib-import-matplotlib.pyplot-as-plt)
-        - [figures and axes](#figures-and-axes)
-        - [figures and axes properties](#figures-and-axes-properties)
-        - [plotting routines](#plotting-routines)
-    - [Pandas](#pandas-import-pandas-as-pd)
-        - [DataFrame](#data-structures)
-        - [read/write data](#dataframe)
-        
-<!-- markdown-toc end -->
 
 ## Pure Python
 
