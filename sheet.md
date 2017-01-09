@@ -155,7 +155,6 @@ np.array([2, 3, 4])             # vector, direct initialization
 np.zeros(200)                   # vector initialized with 200 zeros
 np.ones((3,3))                  # 3 x 3 integer matrix with ones
 np.eye(200)                     # ones on the diagonal
-np.zeros_like(a)                # array with zeros and the shape of a
 np.linspace(0., 10., 100)       # 100 points from 0 to 10
 np.arange(0, 100, 2)            # points from 0 to <100 with step 2
 np.logspace(-5, 2, 100)         # 100 log-spaced from 1e-5 -> 1e2
