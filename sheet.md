@@ -201,7 +201,7 @@ a < 2                         # returns array with boolean values
 ~a                            # invert boolean array
 ```
 
-### elementwise operations and math functions
+### math functions
 
 ```python
 a * 5              # multiplication with scalar
