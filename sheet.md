@@ -301,9 +301,9 @@ ax.text(x, y, string, fontsize=12, color='m')    # write text
 
 ### DataFrame (DF)
 ```python
-df = pd.DataFrame()       #create an empty DataFrame
-df['A'] = [0, 1, 'lundi', 3, 4] # store list in 'A' column
-df['B'] = np.arange(5) # store array in 'B' column
+df = pd.DataFrame()                # create an empty DataFrame
+df['A'] = [0, 1, 'lundi', 3, 4]    # store list in 'A' column
+df['B'] = np.arange(5)             # store array in 'B' column
 print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
@@ -312,12 +312,15 @@ cols = df.columns                  # get list of columns names
 df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
 df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF 
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
+a = df['A'].mean()                 # compute de mean value of the column 'A' (work with .sum(), .min(), .max())
+dfI = df.interpolate(method='time')     # data interpolation (gap completion)
+dfR = df.resample(rule = '1Min').mean() # change time step to 1 min with the mean methode
 ```
 
 ### read/write data
 ```python
 df = pd.read_csv("filename.csv")   # read and load CSV (or .txt) file in a DF
 df = pd.read_excel("filename.xls") # read and load excel sheet in a DF
-pd.to_excel("filename.xls")        # save DF in excel file
-pd.to_csv("filename.csv")          # save DF in text file
+df.to_excel("filename.xls")        # save DF in Excel file
+df.to_csv("filename.csv")          # save DF in text file
 ```
