@@ -131,7 +131,7 @@ for i in range(20):
 def myfunc(a1, a2):
     return a1 + a2
 
-x = myfunc(a1, a2)  #utilisation de la fonction
+x = myfunc(a1, a2)  #call "myfunc" fonction
 
 # Class groups attributes (data)
 # and associated methods (functions)
@@ -227,7 +227,7 @@ np.round(a)        # rounds to neares int
 
 ```python
 evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
-coef = np.polyfit(x,y,2)          # return values of polinomial factors (2nd order in the example)
+coef = np.polyfit(x,y,2)          # return values of polynomial factors (2nd order in the example)
 coef = np.corrcoef(x,y)           # return correlation coefficients (R²)
 ```
 
@@ -235,7 +235,7 @@ coef = np.corrcoef(x,y)           # return correlation coefficients (R²)
 
 ```python
 np.loadtxt('data.txt', skiprows=2, delimiter=';')   # ascii data from file
-np.savetxt('data.txt', array, fmt='%1.4e')           # write ascii data
+np.savetxt('data.txt', array, fmt='%1.4e')          # write ascii data
 ```
 
 ### interpolation, integration, optimization
@@ -244,7 +244,7 @@ np.savetxt('data.txt', array, fmt='%1.4e')           # write ascii data
 np.trapz(a, x=x, axis=1)  # integrate along axis 1
 np.interp(x, xp, yp)      # interpolate function xp, yp at points x
 np.linalg.lstsq(a, b)     # solve a x = b in least square sense
-np.linalg.det(a)          # compute the determiant of a (n,n)
+np.linalg.det(a)          # compute the determinant of a (n,n)
 np.linalg.eigvals(a)      # compute the eigenvalues of a
 ```
 
