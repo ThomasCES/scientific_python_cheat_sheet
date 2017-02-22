@@ -181,7 +181,6 @@ a.sort(axis=1)              # sort array along axis
 a.flatten()                 # collapse array to one dimension
 a = a.reshape(10, 10)       # transform to 10 x 10 matrix
 a.T                         # return transposed view
-b = np.transpose(a, (1, 0)) # transpose array to new axis order
 a.tolist()                  # convert (possibly multidimensional) array to list
 np.argmax(a, axis=1)        # return index of maximum along a given axis
 np.cumsum(a)                # return cumulative sum
@@ -310,11 +309,15 @@ a = df['A'].values                 # get the 'A' column out of DF
 a = df.iloc[2,3]                   # get element (indexe [2,3]) out of DF
 cols = df.columns                  # get list of columns names
 df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
-df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF 
+df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF
+df.isnull()                        # detect empty cells in the DF
+df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
-a = df['A'].mean()                 # compute de mean value of the column 'A' (work with .sum(), .min(), .max())
+a = df['B'].mean()                 # compute de mean value of the column 'A' (work with sum(), min(), max()...)
 dfI = df.interpolate(method='time')     # data interpolation (gap completion)
-dfR = df.resample(rule = '1Min').mean() # change time step to 1 min with the mean methode
+dfR = df.resample(rule = '30Min').mean() # change time step to 30 min with the mean methode
+df.index = pd.to_datetime(TimeVector)    # use TimeVector to creat new index in the DF
+df.plot()                          # use matplotlib to plot the DF (many options!)
 ```
 
 ### read/write data
