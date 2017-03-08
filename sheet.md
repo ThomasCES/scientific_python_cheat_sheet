@@ -10,7 +10,7 @@ a = 2           # integer
 b = 5.0         # float
 c = 8.3e5       # = 8.3 * 10**5
 d = 1.5 + 0.5j  # complex
-e = 4 > 5       # boolean (False)
+e = True        # boolean (or False)
 f = 'word'      # string
 ```
 ### Operators
@@ -31,7 +31,6 @@ abs(a)            # absolute value
 1 != 2            # not equal
 1 != 2 and 2 < 3  # logical AND
 1 != 2 or 2 < 3   # logical OR
-not 1 == 2        # logical NOT
 a is b            # test if objects point to the same memory (id)
 ```
 
@@ -39,7 +38,7 @@ a is b            # test if objects point to the same memory (id)
 
 ```python
 a = 'red'                      # assignment
-char = a[2]                    # access individual characters
+char = a[2]                    # access individual characters (='d')
 'red ' + 'blue'                # string concatenation ( ='redblue')
 '1, 2, three'.split(',')       # split string into list
 '1, 2, three'.replace(',','.') # replace character by other one (',' by '.' in the example)
@@ -49,6 +48,7 @@ char = a[2]                    # access individual characters
 ### Lists
 
 ```python
+a = [] (or a = list())             # create empty list
 a = ['red', 'blue', 'green']       # manually initialization
 b = list(range(5))                 # initialize from iteratable
 c = [nu**2 for nu in b]            # list comprehension
@@ -58,14 +58,14 @@ f = c[1:2]                         # access a slice of the list
 g = c[-1]                          # access last element
 h = ['re', 'bl'] + ['gr']          # list concatenation
 i = ['re'] * 5                     # repeat a list
-['re', 'bl'].index('re')           # returns index of 're'
+['do', 're', 'mi'].index('re')     # returns index of 're'
 a.append('yellow')                 # add new element to end of list
 a.extend(b)                        # add elements from list `b` to end of list `a`
 a.insert(1, 'yellow')              # insert element in specified position
-'re' in ['re', 'bl']               # true if 're' in list
-'fi' not in ['re', 'bl']           # true if 'fi' not in list
-sorted([3, 2, 1])                  # returns sorted list
-a.pop(2)                           # remove and return item at index (default last)
+'re' in ['do', 're', 'mi']         # true if 're' in list
+'fa' not in ['do', 're', 'mi']     # true if 'fi' not in list
+sorted([3, 2, 1])                  # returns sorted list (work with any iterable object)
+a.remove('do')                     # remove item from list
 ```
 
 ### Dictionaries
@@ -79,7 +79,7 @@ a.update({'green': 'vert', 'brown': 'brun'}) # update dictionary by data from an
 a.keys()                                     # get list of keys
 a.values()                                   # get list of values
 a.items()                                    # get list of key-value pairs
-del a['red']                                 # delete key and associated with it value
+del a['red']                                 # delete key and the associated value
 ```
 
 ### Control Flow : if, for, while
@@ -96,10 +96,10 @@ else:
 
 # for
 a = ['red', 'blue', 'green']
-for color in a:
-    print(color)
+for i in a:
+    print(i)
     
-# for (bis)
+# for (bis) i = 0 to 9
 for i in range(0,10):
     print(i**2)
     
@@ -117,21 +117,18 @@ while True:
     if number > 10:
         break
 
-# continue
-for i in range(20):
-    if i % 2 == 0:
-        continue
-    print(i)
-```
-
 ### Functions, Classes,
 
 ```python
 # Function groups code statements and returns a value
-def myfunc(a1, a2):
-    return a1 + a2
-
-x = myfunc(a1, a2)  #call "myfunc" fonction
+import numpy as np
+def myfunc(x, a, b):
+    y = a * x + b
+    return y
+x = np.arange(0,100,1)
+a = 0.33
+b = -45
+y = myfunc(x, a, b)  #call "myfunc" fonction
 
 # Class groups attributes (data)
 # and associated methods (functions)
