@@ -62,7 +62,7 @@ a.append('yellow')                 # add new element to end of list
 a.extend(b)                        # add elements from list `b` to end of list `a`
 a.insert(1, 'yellow')              # insert element in specified position
 're' in ['do', 're', 'mi']         # true if 're' in list
-'fa' not in ['do', 're', 'mi']     # true if 'fi' not in list
+'fa' not in ['do', 're', 'mi']     # true if 'fa' not in list
 sorted([3, 2, 1])                  # returns sorted list (work with any iterable object)
 a.remove('do')                     # remove item from list
 ```
