@@ -117,30 +117,6 @@ while True:
     if number > 10:
         break
 
-### Functions, Classes,
-
-```python
-# Function groups code statements and returns a value
-import numpy as np
-def myfunc(x, a, b):
-    y = a * x + b
-    return y
-x = np.arange(0,100,1)
-a = 0.33
-b = -45
-y = myfunc(x, a, b)  #call "myfunc" fonction
-
-# Class groups attributes (data)
-# and associated methods (functions)
-class Point(object):
-    def __init__(self, x):
-        self.x = x
-    def __call__(self):
-        print(self.x)
-
-x = Point(3)
-```
-
 ## NumPy (`import numpy as np`)
 
 ### array initialization
@@ -254,6 +230,28 @@ np.random.randint(1, 16, 300)               # 300 random integers in [1, 16)
 np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random numbers choose in a list with p probability
 ```
 
+### Functions, Classes,
+
+```python
+# Function groups code statements and returns a value
+import numpy as np
+def myfunc(x, a, b):
+    y = a * x + b
+    return y
+x = np.arange(0,100,1)
+a = 0.33
+b = -45
+y = myfunc(x, a, b)  #call "myfunc" fonction
+
+# Class groups attributes (data)
+# and associated methods (functions)
+class Point(object):
+    def __init__(self, x):
+        self.x = x
+    def __call__(self):
+        print(self.x)
+x = Point(3) #use the class Point
+```
 ## Matplotlib (`import matplotlib.pyplot as plt`)
 
 ### figures and axes
