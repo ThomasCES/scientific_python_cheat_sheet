@@ -122,26 +122,27 @@ while True:
 ### array initialization
 
 ```python
-np.array([2, 3, 4])             # vector, direct initialization
-np.zeros(200)                   # vector initialized with 200 zeros
-np.ones((3,3))                  # 3 x 3 integer matrix with ones
-np.eye(200)                     # ones on the diagonal
-np.linspace(0., 10., 100)       # 100 points from 0 to 10
-np.arange(0, 100, 2)            # points from 0 to <100 with step 2
-np.logspace(-5, 2, 100)         # 100 log-spaced from 1e-5 -> 1e2
-np.copy(a)                      # copy array to new memory
+a = np.array([2, 3, 4])             # vector, direct initialization
+b = np.zeros(200)                   # vector initialized with 200 zeros
+c = np.ones((3,3))                  # 3 x 3 integer matrix with ones
+d = np.eye(200)                     # ones on the diagonal
+e = np.linspace(0., 10., 100)       # 100 points from 0 to 10
+f = np.arange(0, 100, 2)            # points from 0 to <100 with step 2
+g = np.logspace(-5, 2, 100)         # 100 log-spaced from 1e-5 -> 1e2
+h = np.copy(a)                      # copy array to new memory
 ```
 
 ### indexing
 
 ```python
-a[:3] = 0                   # set the first three indices to zero
-a[2:5] = 1                  # set indices 2-4 to 1
-a[:-3] = 2                  # set all but last three elements to 2
-a[start:stop:step]          # general form of indexing/slicing
-a[None, :]                  # transform to column vector
-a[[1, 1, 3, 8]]             # return array with values of the indices
-a[a < 2]                    # values with elementwise condition
+a[:3] = 0                 # set the first three indices to zero
+a[2:5] = 1                # set indices 2-4 to 1
+a[:-3] = 2                # set all but last three elements to 2
+a[start:stop:step]        # general form of indexing/slicing
+a[None, :]                # transform to column vector
+a[[1, 1, 3, 8]]           # return array with values of the indices
+a[a < 2]                  # values with elementwise condition
+a[a > 2] = 0              # set values equal to 0 under condition   
 ```
 
 ### array properties and operations
