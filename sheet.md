@@ -2,7 +2,6 @@ Scientific Python Cheatsheet
 ============================
 
 # Pure Python
-
 ### Types
 
 ```python
@@ -116,9 +115,8 @@ while True:
     number += 1
     if number > 10:
         break
-
-## NumPy (`import numpy as np`)
-
+```
+# NumPy (`import numpy as np`)
 ### array initialization
 
 ```python
@@ -245,9 +243,8 @@ x = np.arange(0,100,1)
 a = 0.33
 b = -45
 (y, z) = myfunc(x, a, b)  #call "myfunc"
-
-## Matplotlib (`import matplotlib.pyplot as plt`)
-
+```
+# Matplotlib (`import matplotlib.pyplot as plt`)
 ### figures and axes
 
 ```python
