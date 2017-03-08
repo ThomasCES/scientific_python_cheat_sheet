@@ -201,13 +201,13 @@ np.round(a)        # rounds to neares int
 ```python
 evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
 coef = np.polyfit(x,y,2)          # return values of polynomial factors (2nd order in the example)
-coef = np.corrcoef(x,y)           # return correlation coefficients (R²)
+coef = np.corrcoef(x,y)           # return correlation coefficients (R and not R² like Excel)
 ```
 
 ### reading/ writing files
 
 ```python
-np.loadtxt('data.txt', skiprows=2, delimiter=';')   # ascii data from file
+np.loadtxt('data.txt', skiprows=2, delimiter=';')   # read ascii data from file
 np.savetxt('data.txt', array, fmt='%1.4e')          # write ascii data
 ```
 
@@ -231,28 +231,21 @@ np.random.randint(1, 16, 300)               # 300 random integers in [1, 16)
 np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random numbers choose in a list with p probability
 ```
 
-### Functions, Classes,
+### Functions
 
 ```python
-# Function groups code statements and returns a value
+# Function to compute simple polynom
 import numpy as np
 def myfunc(x, a, b):
     y = a * x + b
-    return y
+    z = a * x**2 + b * x
+    return y, z
+
 x = np.arange(0,100,1)
 a = 0.33
 b = -45
-y = myfunc(x, a, b)  #call "myfunc" fonction
+(y, z) = myfunc(x, a, b)  #call "myfunc"
 
-# Class groups attributes (data)
-# and associated methods (functions)
-class Point(object):
-    def __init__(self, x):
-        self.x = x
-    def __call__(self):
-        print(self.x)
-x = Point(3) #use the class Point
-```
 ## Matplotlib (`import matplotlib.pyplot as plt`)
 
 ### figures and axes
