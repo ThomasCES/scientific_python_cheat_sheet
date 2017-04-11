@@ -115,7 +115,7 @@ while True:
     if number > 10:
         break
 ```
-### operating system interfaces ('import os as os')
+### operating system interfaces (`import os as os`)
 see https://docs.python.org/3.6/library/os.html#
 ```python
 folder_name = os.getcwd()
@@ -159,7 +159,7 @@ len(a)                      # length of axis 0 (ie. number of row)
 a.ndim                      # number of dimensions (axes)
 a.sort(axis=1)              # sort array along axis
 a.flatten()                 # collapse array to one dimension
-a = a.reshape(2, 4)       # transform to 2 x 4 matrix
+a = a.reshape(2, 4)         # transform to 2 x 4 matrix
 a.T                         # return transposed view
 a.tolist()                  # convert (possibly multidimensional) array to list
 np.argmax(a, axis=1)        # return index of maximum along a given axis
@@ -235,7 +235,7 @@ zz = np.random.randint(1, 42, [100,  100])       # 100 random integers in [1, 42
 np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list with p probability
 ```
 
-### Functions
+# Functions
 
 ```python
 # Function to compute simple polynom
@@ -268,11 +268,10 @@ plt.ylabel('ybla')            # set ylabel
 plt.xlim(0, 2)                # sets x limits
 plt.ylim(0, 4)                # sets y limits
 plt.legend(['case A','case B'], loc='best')    # show legend
-plt.tight_layout()            # auto-sizing figure 
-plt.savefig('fig.png')        # save figure in .png format
 ```
 
-### plotting
+### plotting 
+see http://matplotlib.org/gallery.html
 
 ```python
 plt.plot(xx, yy, '-o', c='red', lw=2)            # plots a line
@@ -314,7 +313,7 @@ df.plot()                          # use matplotlib to plot the DF (many options
 
 ### read/write data
 ```python
-df = pd.read_csv("filename.csv")   # read and load CSV (or .txt) file in a DF
+df = pd.read_csv("filename.csv", sep=',', skiprows='0')   # read and load CSV (or .txt) file in a DF
 df = pd.read_excel("filename.xls") # read and load excel sheet in a DF
 df.to_excel("filename.xls")        # save DF in Excel file
 df.to_csv("filename.csv")          # save DF in text file
