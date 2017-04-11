@@ -51,19 +51,18 @@ a = ['red', 'blue', 'green']       # manually initialization
 b = list(range(5))                 # initialize from iteratable
 c = [nu**2 for nu in b]            # list comprehension
 d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
-e = c[0]                           # access element
-f = c[1:2]                         # access a slice of the list
-g = c[-1]                          # access last element
+e = a[0]                           # access element
+f = a[1:2]                         # access a slice of the list
+g = a[-1]                          # access last element
 h = ['re', 'bl'] + ['gr']          # list concatenation
 i = ['re'] * 5                     # repeat a list
 ['do', 're', 'mi'].index('re')     # returns index of 're'
 a.append('yellow')                 # add new element to end of list
-a.extend(b)                        # add elements from list `b` to end of list `a`
 a.insert(1, 'yellow')              # insert element in specified position
 're' in ['do', 're', 'mi']         # true if 're' in list
 'fa' not in ['do', 're', 'mi']     # true if 'fa' not in list
 sorted([3, 2, 1])                  # returns sorted list (work with any iterable object)
-a.remove('do')                     # remove item from list
+a.remove('red')                     # remove item from list
 ```
 
 ### Dictionaries
