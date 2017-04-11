@@ -10,13 +10,11 @@ b = 5.0         # float
 c = 8.3e5       # = 8.3 * 10**5
 d = 1.5 + 0.5j  # complex
 e = True        # boolean (or False)
-f = 'word'      # string
+f = 'word' (or "word")      # string
 ```
 ### Operators
 
 ```python
-a = 2             # assignment
-a += 1 (*=, /=)   # change and assign (a = a + 1) 
 3 + 2             # addition
 3 / 2             # integer (python2) or float (python3) division
 3 // 2            # integer division (division euclidienne)
@@ -24,7 +22,8 @@ a += 1 (*=, /=)   # change and assign (a = a + 1)
 3 ** 2            # exponent
 3 % 2             # remainder (reste de la division euclidienne)
 abs(a)            # absolute value
-1 == 1            # equal (= True)
+a += 1 (*=, /=)   # change and assign (a = a + 1) 
+1 == 1            # equal, ask question (= True)
 2 > 1             # larger (= Trus)
 2 < 1             # smaller(= False)
 1 != 2            # not equal
@@ -116,12 +115,21 @@ while True:
     if number > 10:
         break
 ```
+### operating system interfaces ('import os as os')
+see https://docs.python.org/3.6/library/os.html#
+```python
+folder_name = os.getcwd()
+file_name = os.listdir(folder_name)
+os.chdir(another_folder)
+```
 # NumPy (`import numpy as np`)
 ### array initialization
 
 ```python
-a = np.array([2, 3, 4])             # vector, direct initialization
-b = np.zeros(200)                   # vector initialized with 200 zeros
+a = np.array([3, 1, 4, 1, 5, 9, 2, 6]) # vector, direct initialization
+x = np.array([[2, 7, 1], [8, 2, 8]) # matrix, direct initialization
+x = np.array([a, a, a])             # matrix, 3 rows
+b = np.zeros(8)                     # vector initialized with 8 zeros
 c = np.ones((3,3))                  # 3 x 3 integer matrix with ones
 d = np.eye(200)                     # ones on the diagonal
 e = np.linspace(0., 10., 100)       # 100 points from 0 to 10
@@ -138,7 +146,7 @@ a[2:5] = 1                # set indices 2-4 to 1
 a[:-3] = 2                # set all but last three elements to 2
 a[start:stop:step]        # general form of indexing/slicing
 a[None, :]                # transform to column vector
-a[[1, 1, 3, 8]]           # return array with values of the indices
+a[[1, 1, 3, -1]]           # return array with values of the indices
 a[a < 2]                  # values with elementwise condition
 a[a > 2] = 0              # set values equal to 0 under condition   
 ```
@@ -147,11 +155,11 @@ a[a > 2] = 0              # set values equal to 0 under condition
 
 ```python
 a.shape                     # a tuple with the lengths of each axis
-len(a)                      # length of axis 0
+len(a)                      # length of axis 0 (ie. number of row)
 a.ndim                      # number of dimensions (axes)
 a.sort(axis=1)              # sort array along axis
 a.flatten()                 # collapse array to one dimension
-a = a.reshape(10, 10)       # transform to 10 x 10 matrix
+a = a.reshape(2, 4)       # transform to 2 x 4 matrix
 a.T                         # return transposed view
 a.tolist()                  # convert (possibly multidimensional) array to list
 np.argmax(a, axis=1)        # return index of maximum along a given axis
@@ -160,16 +168,14 @@ np.any(a)                   # True if any element is True
 np.all(a)                   # True if all elements are True
 np.argsort(a, axis=1)       # return sorted index array along axis
 np.where(cond)              # return indices where cond is True
-np.where(cond, x, y)        # return elements from x or y depending on cond
 ```
 
 ### boolean arrays
 
 ```python
 a < 2                         # returns array with boolean values
-(a < 2) & (b > 10)            # elementwise logical and
-(a < 2) | (b > 10)            # elementwise logical or
-~a                            # invert boolean array
+(a < 2) & (b == 0)            # elementwise logical and
+(a < 2) | (b != 0)            # elementwise logical or
 ```
 
 ### math functions
@@ -182,7 +188,7 @@ a / b              # division with b (np.NaN for division by zero)
 np.exp(a)          # exponential (complex and real)
 np.sin(a)          # sine
 np.cos(a)          # cosine
-np.arctan2(a, b)   # arctan(a/b)
+np.arctan2(a, b)   # ~arctan(a/b)
 np.arcsin(a)       # arcsin
 np.radians(a)      # degrees to radians
 np.degrees(a)      # radians to degrees
@@ -205,8 +211,8 @@ coef = np.corrcoef(x,y)           # return correlation coefficients (R and not R
 ### reading/ writing files
 
 ```python
-np.loadtxt('data.txt', skiprows=2, delimiter=';')   # read ascii data from file
-np.savetxt('data.txt', array, fmt='%1.4e')          # write ascii data
+np.savetxt('data.txt', x , fmt='%1.4e', delimiter=';')          # write 'x' in ascii data
+data = np.loadtxt('data.txt', skiprows=0, delimiter=';')   # read ascii data from file
 ```
 
 ### interpolation, integration, optimization
@@ -223,10 +229,10 @@ np.linalg.eigvals(a)      # compute the eigenvalues of a
 
 ```python
 np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed
-np.random.rand(200)                         # 200 random numbers in [0, 1)
-np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
-np.random.randint(1, 16, 300)               # 300 random integers in [1, 16)
-np.random.choice([0, 1], 2, p=[0.5, 0.5])   # 2 random numbers choose in a list with p probability
+xx = np.random.rand(100)                         # 100 random numbers in [0, 1]
+yy = np.random.uniform(1, 42, 100)               # 100 random numbers in [1, 42]
+zz = np.random.randint(1, 42, [100,  100])       # 100 random integers in [1, 42]
+np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list with p probability
 ```
 
 ### Functions
@@ -269,12 +275,12 @@ plt.savefig('fig.png')        # save figure in .png format
 ### plotting
 
 ```python
-plt.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
-plt.scatter(x,y, s=20, c=color)                  # scatter plot
+plt.plot(xx, yy, '-o', c='red', lw=2)            # plots a line
+plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
 plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
 plt.contour(xx, yy, zz, cmap='jet')              # contour lines
 plt.contourf(xx, yy, zz, vmin=2, vmax=4)         # filled contours
-plt.hist(x, bins=50)                             # histogram
+plt.hist(xx, bins=50)                            # histogram
 plt.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2),
         interpolation='bilinear', aspect='auto') # image (carpet plot, heat map)
 ax.specgram(y, FS=0.1, noverlap=128,
