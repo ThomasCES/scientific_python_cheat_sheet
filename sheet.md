@@ -24,7 +24,7 @@ f = 'word' (or "word")      # string
 abs(a)            # absolute value
 a += 1 (*=, /=)   # change and assign (a = a + 1) 
 1 == 1            # equal, ask question (= True)
-2 > 1             # larger (= Trus)
+2 > 1             # larger (= True)
 2 < 1             # smaller(= False)
 1 != 2            # not equal
 1 != 2 and 2 < 3  # logical AND
