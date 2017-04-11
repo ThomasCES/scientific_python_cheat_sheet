@@ -163,8 +163,8 @@ a.T                         # return transposed view
 a.tolist()                  # convert (possibly multidimensional) array to list
 np.argmax(a, axis=1)        # return index of maximum along a given axis
 np.cumsum(a)                # return cumulative sum
-np.any(a)                   # True if any element is True
-np.all(a)                   # True if all elements are True
+np.any(b)                   # True if any element is True
+np.all(b)                   # True if all elements are True
 np.argsort(a, axis=1)       # return sorted index array along axis
 np.where(cond)              # return indices where cond is True
 ```
