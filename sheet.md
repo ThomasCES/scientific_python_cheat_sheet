@@ -126,7 +126,7 @@ os.chdir(another_folder)
 
 ```python
 a = np.array([3, 1, 4, 1, 5, 9, 2, 6]) # vector, direct initialization
-x = np.array([[2, 7, 1], [8, 2, 8]) # matrix, direct initialization
+x = np.array([[2, 7, 1], [8, 2, 8]]) # matrix, direct initialization
 x = np.array([a, a, a])             # matrix, 3 rows
 b = np.zeros(8)                     # vector initialized with 8 zeros
 c = np.ones((3,3))                  # 3 x 3 integer matrix with ones
@@ -156,8 +156,8 @@ a[a > 2] = 0              # set values equal to 0 under condition
 a.shape                     # a tuple with the lengths of each axis
 len(a)                      # length of axis 0 (ie. number of row)
 a.ndim                      # number of dimensions (axes)
-a.sort(axis=1)              # sort array along axis
-a.flatten()                 # collapse array to one dimension
+a.sort()                    # sort array along (ie. a2 = np.sort(a))
+x.flatten()                 # collapse array to one dimension
 a = a.reshape(2, 4)         # transform to 2 x 4 matrix
 a.T                         # return transposed view
 a.tolist()                  # convert (possibly multidimensional) array to list
@@ -192,9 +192,9 @@ np.arcsin(a)       # arcsin
 np.radians(a)      # degrees to radians
 np.degrees(a)      # radians to degrees
 np.var(a)          # variance of array
-np.std(a, axis=1)  # standard deviation
+np.std(a, axis=0)  # standard deviation
 np.dot(a, b)       # matrix product (inner product: a_mi b_in)
-np.sum(a, axis=1)  # sum over axis 1
+np.sum(a, axis=0)  # sum over axis 0 (np.mean, np.min, np.max, ...)
 np.abs(a)          # return absolute values
 np.round(a)        # rounds to neares int
 ```
@@ -296,7 +296,7 @@ df['B'] = np.arange(5)             # store array in 'B' column
 print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
-a = df.iloc[2,3]                   # get element (indexe [2,3]) out of DF
+a = df.iloc[2,1]                   # get element (indexe [2,3]) out of DF
 cols = df.columns                  # get list of columns names
 df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
 df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF
