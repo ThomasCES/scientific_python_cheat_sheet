@@ -273,17 +273,17 @@ plt.legend(['case A','case B'], loc='best')    # show legend
 see http://matplotlib.org/gallery.html
 
 ```python
-plt.plot(xx, yy, '-o', c='red', lw=2)            # plots a line
+plt.plot(x, y, '-o', c='red', lw=2)              # plots a line
+plt.bar(x,y)                                     #plot bars
+plt.hist(xx, bins=50)                            # histogram
 plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
 plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
 plt.contour(xx, yy, zz, cmap='jet')              # contour lines
 plt.contourf(xx, yy, zz, vmin=2, vmax=4)         # filled contours
-plt.hist(xx, bins=50)                            # histogram
 plt.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2),
         interpolation='bilinear', aspect='auto') # image (carpet plot, heat map)
 ax.specgram(y, FS=0.1, noverlap=128,
             scale='linear')                      # spectrogram
-ax.text(x, y, string, fontsize=12, color='m')    # write text
 ```
 
 ## Pandas (`import pandas as pd`)
