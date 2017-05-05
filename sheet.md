@@ -146,7 +146,7 @@ a[2:5] = 1                # set indices 2-4 to 1
 a[:-3] = 2                # set all but last three elements to 2
 a[start:stop:step]        # general form of indexing/slicing
 a[None, :]                # transform to column vector
-a[[1, 1, 3, -1]]           # return array with values of the indices
+a[[1, 1, 3, -1]]          # return array with values of the indices
 a[a < 2]                  # values with elementwise condition
 a[a > 2] = 0              # set values equal to 0 under condition   
 ```
