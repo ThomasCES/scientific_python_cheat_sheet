@@ -71,12 +71,13 @@ a.remove('red')                     # remove item from list
 a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
 b = a['red']                                 # call item
 'red' in a                                   # true if dictionary a contains key 'red'
-c = [value for key, value in a.items()]      # loop through contents
-a.update({'green': 'vert', 'brown': 'brun'}) # update dictionary by data from another one
 a.keys()                                     # get list of keys
 a.values()                                   # get list of values
 a.items()                                    # get list of key-value pairs
 del a['red']                                 # delete key and the associated value
+for k, v in a.items():      # loop through contents and print values
+    print(v)
+a.update({'green': 'vert', 'brown': 'brun'}) # update dictionary by data from another one
 ```
 
 ### Control Flow : if, for, while
@@ -210,8 +211,8 @@ coef = np.corrcoef(x,y)           # return correlation coefficients (R and not R
 ### reading/ writing files
 
 ```python
-np.savetxt('data.txt', x , fmt='%1.4e', delimiter=';')          # write 'x' in ascii data
-data = np.loadtxt('data.txt', skiprows=0, delimiter=';')   # read ascii data from file
+np.savetxt('data.txt', x , fmt='%1.4e', delimiter=';')     # write 'x' in ascii data
+data = np.loadtxt('data.txt', skiprows=0, delimiter=';')   # load ascii data from file
 ```
 
 ### interpolation, integration, optimization
