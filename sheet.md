@@ -141,7 +141,7 @@ h = np.copy(a)                      # copy array to new memory
 ### indexing
 
 ```python
-a[:3] = 0                 # set the first three indices to zero
+a[0:3] = 0  (or a[:3]=0) # set the first three indices to zero
 a[2:5] = 1                # set indices 2-4 to 1
 a[:-3] = 2                # set all but last three elements to 2
 a[start:stop:step]        # general form of indexing/slicing
