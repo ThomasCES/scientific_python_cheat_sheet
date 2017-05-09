@@ -48,9 +48,6 @@ char = a[2]                    # access individual characters (='d')
 ```python
 a = [] (or a = list())             # create empty list
 a = ['red', 'blue', 'green']       # manually initialization
-b = list(range(5))                 # initialize from iteratable
-c = [nu**2 for nu in b]            # list comprehension
-d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
 e = a[0]                           # access element
 f = a[1:2]                         # access a slice of the list
 g = a[-1]                          # access last element
@@ -63,6 +60,9 @@ a.insert(1, 'yellow')              # insert element in specified position
 'fa' not in ['do', 're', 'mi']     # true if 'fa' not in list
 sorted([3, 2, 1])                  # returns sorted list (work with any iterable object)
 a.remove('red')                     # remove item from list
+b = list(range(5))                 # initialize from iteratable
+c = [nu**2 for nu in b]            # list comprehension
+d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
 ```
 
 ### Dictionaries
@@ -118,9 +118,9 @@ while True:
 ### operating system interfaces (`import os as os`)
 see https://docs.python.org/3.6/library/os.html#
 ```python
-folder_name = os.getcwd()
-file_name = os.listdir(folder_name)
-os.chdir(another_folder)
+folder_name = os.getcwd()           # get working directory name
+file_name = os.listdir(folder_name) # list of files in folder
+os.chdir(another_folder)            # change working directory
 ```
 # NumPy (`import numpy as np`)
 ### array initialization
@@ -145,7 +145,6 @@ a[:3] = 0                 # set the first three indices to zero
 a[2:5] = 1                # set indices 2-4 to 1
 a[:-3] = 2                # set all but last three elements to 2
 a[start:stop:step]        # general form of indexing/slicing
-a[None, :]                # transform to column vector
 a[[1, 1, 3, -1]]          # return array with values of the indices
 a[a < 2]                  # values with elementwise condition
 a[a > 2] = 0              # set values equal to 0 under condition   
@@ -186,12 +185,7 @@ a + 5              # addition with scalar
 a + b              # addition with array b
 a / b              # division with b (np.NaN for division by zero)
 np.exp(a)          # exponential (complex and real)
-np.sin(a)          # sine
-np.cos(a)          # cosine
-np.arctan2(a, b)   # ~arctan(a/b)
-np.arcsin(a)       # arcsin
-np.radians(a)      # degrees to radians
-np.degrees(a)      # radians to degrees
+np.sin(a)          # sine (np.cos, np.arcsin, ...)
 np.var(a)          # variance of array
 np.std(a, axis=0)  # standard deviation
 np.dot(a, b)       # matrix product (inner product: a_mi b_in)
@@ -228,11 +222,11 @@ np.linalg.eigvals(a)      # compute the eigenvalues of a
 ### random variables
 
 ```python
-np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed
 xx = np.random.rand(100)                         # 100 random numbers in [0, 1]
 yy = np.random.uniform(1, 42, 100)               # 100 random numbers in [1, 42]
 zz = np.random.randint(1, 42, [100,  100])       # 100 random integers in [1, 42]
 np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list with p probability
+np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed
 ```
 
 # Functions
@@ -299,12 +293,12 @@ a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
 a = df.iloc[2,1]                   # get element (indexe [2,3]) out of DF
 cols = df.columns                  # get list of columns names
-df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
-df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF
-df.isnull()                        # detect empty cells in the DF
 df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
 a = df['B'].mean()                 # compute de mean value of the column 'A' (work with sum(), min(), max()...)
+df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
+df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF
+df.isnull()                        # detect empty cells in the DF
 dfI = df.interpolate(method='time')     # data interpolation (gap completion)
 dfR = df.resample(rule = '30Min').mean() # change time step to 30 min with the mean methode
 df.index = pd.to_datetime(TimeVector)    # use TimeVector to creat new index in the DF
