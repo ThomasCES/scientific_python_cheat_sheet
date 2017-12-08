@@ -161,12 +161,13 @@ x.flatten()                 # collapse array to one dimension
 a = a.reshape(2, 4)         # transform to 2 x 4 matrix
 a.T                         # return transposed view
 a.tolist()                  # convert (possibly multidimensional) array to list
-np.argmax(a, axis=1)        # return index of maximum along a given axis
+np.argmax(a)                # return index of maximum along a given axis
 np.cumsum(a)                # return cumulative sum
 np.any(b)                   # True if any element is True
 np.all(b)                   # True if all elements are True
-np.argsort(a, axis=1)       # return sorted index array along axis
+np.argsort(a)               # return sorted index array along axis
 np.where(cond)              # return indices where cond is True
+np.isin(a,b)                # return true if elements of 'a' are in 'b'
 ```
 
 ### boolean arrays
@@ -269,12 +270,12 @@ see http://matplotlib.org/gallery.html
 
 ```python
 plt.plot(x, y, '-o', c='red', lw=2)              # plots a line
-plt.bar(x,y)                                     #plot bars
+plt.bar(x,y)                                     # plot bars
 plt.hist(xx, bins=50)                            # histogram
 plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
 plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
 plt.contour(xx, yy, zz, cmap='jet')              # contour lines
-plt.contourf(xx, yy, zz, vmin=2, vmax=4)         # filled contours
+plt.boxplot(matrix, showfliers=True)             # distribution of data based on the first quartile, median, third quartile 
 plt.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2),
         interpolation='bilinear', aspect='auto') # image (carpet plot, heat map)
 ax.specgram(y, FS=0.1, noverlap=128,
