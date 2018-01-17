@@ -292,7 +292,7 @@ df['B'] = np.arange(5)             # store array in 'B' column
 print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
-a = df.iloc[2,1]                   # get element (indexe [2,3]) out of DF
+a = df.iloc[2,3]                   # get element (index [2,3]) out of DF
 cols = df.columns                  # get list of columns names
 df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
@@ -308,8 +308,8 @@ df.plot()                          # use matplotlib to plot the DF (many options
 
 ### read/write data
 ```python
-df = pd.read_csv("filename.csv", sep=',', skiprows='0')   # read and load CSV (or .txt) file in a DF
-df = pd.read_excel("filename.xls") # read and load excel sheet in a DF
-df.to_excel("filename.xls")        # save DF in Excel file
-df.to_csv("filename.csv")          # save DF in text file
+df = pd.read_csv('filename.csv', sep=',', skiprows='0')   # read and load CSV (or .txt) file in a DF
+df = pd.read_excel('filename.xls') # read and load excel sheet in a DF
+df.to_excel('filename.xls')        # save DF in Excel file
+df.to_csv('filename.csv')          # save DF in text file
 ```
