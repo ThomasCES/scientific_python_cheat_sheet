@@ -282,7 +282,7 @@ ax.specgram(y, FS=0.1, noverlap=128,
             scale='linear')                      # spectrogram
 ```
 
-## Pandas (`import pandas as pd`)
+# Pandas (`import pandas as pd`)
 
 ### DataFrame (DF)
 ```python
