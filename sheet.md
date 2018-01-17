@@ -286,19 +286,20 @@ ax.specgram(y, FS=0.1, noverlap=128,
 
 ### DataFrame (DF)
 ```python
-df = pd.DataFrame()                # create an empty DataFrame
-df['A'] = [0, 1, 'lundi', 3, 4]    # store list in 'A' column
-df['B'] = np.arange(5)             # store array in 'B' column
+df = pd.DataFrame()              # create an empty DataFrame
+df['A'] = [0, 1, 'lundi', 3, 4]  # store list in 'A' column
+df['B'] = np.arange(5)           # store array in 'B' column
+df['C'] = [0, 1, np.nan, 3, 4]   # store list in 'C' column with empty cell
 print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
-a = df.iloc[2,3]                   # get element (index [2,3]) out of DF
+a = df.iloc[2,1]                   # get element (index [2,1]) out of DF
 cols = df.columns                  # get list of columns names
 df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
 a = df['B'].mean()                 # compute de mean value of the column 'A' (work with sum(), min(), max()...)
-df2 = df.dropna(axis=1,how='all')  # delete "empty" cell of DF
-df2 = df.fillna(value = 5)         # replace "empty cell by  the number 5 in DF
+df2 = df.dropna(axis=1)            # delete "empty" cell of DF
+df2 = df.fillna(value = 99)        # replace "empty" cell by 99 in DF
 df.isnull()                        # detect empty cells in the DF
 dfI = df.interpolate(method='time')     # data interpolation (gap completion)
 dfR = df.resample(rule = '30Min').mean() # change time step to 30 min with the mean methode
