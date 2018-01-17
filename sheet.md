@@ -188,9 +188,10 @@ a / b              # division with b (np.NaN for division by zero)
 np.exp(a)          # exponential (complex and real)
 np.sin(a)          # sine (np.cos, np.arcsin, ...)
 np.var(a)          # variance of array
-np.std(a, axis=0)  # standard deviation
+np.std(a)          # standard deviation
 np.dot(a, b)       # matrix product (inner product: a_mi b_in)
-np.sum(a, axis=0)  # sum over axis 0 (np.mean, np.min, np.max, ...)
+np.sum(a)          # sum of all numbers in a (np.mean, np.min, np.max, ...)
+np.sum(x, axis=1)  # sum over axis 1 in x        
 np.abs(a)          # return absolute values
 np.round(a)        # rounds to neares int
 ```
