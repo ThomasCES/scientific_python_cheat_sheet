@@ -48,11 +48,11 @@ char = a[2]                    # access individual characters (='d')
 ```python
 a = [] (or a = list())             # create empty list
 a = ['red', 'blue', 'green']       # manually initialization
-e = a[0]                           # access element
+e = a[0]                           # access first element
 f = a[1:2]                         # access a slice of the list
 g = a[-1]                          # access last element
 h = ['re', 'bl'] + ['gr']          # list concatenation
-i = ['re'] * 5                     # repeat a list
+i = ['re'] * 5                     # repeat a list five time
 ['do', 're', 'mi'].index('re')     # returns index of 're'
 a.append('yellow')                 # add new element to end of list
 a.insert(1, 'yellow')              # insert element in specified position
