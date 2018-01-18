@@ -309,8 +309,8 @@ df.plot()                          # use matplotlib to plot the DF (many options
 
 ### read/write data
 ```python
-df = pd.read_csv('filename.csv', sep=',', skiprows='0')   # read and load CSV (or .txt) file in a DF
-df = pd.read_excel('filename.xls') # read and load excel sheet in a DF
-df.to_excel('filename.xls')        # save DF in Excel file
-df.to_csv('filename.csv')          # save DF in text file
+df.to_excel('filename1.xls')        # save DF in Excel file
+df.to_csv('filename2.csv')          # save DF in text file
+data1 = pd.read_csv('filename2.csv', sep=',', skiprows='0')   # read and load CSV (or .txt) file in a DF
+data2 = pd.read_excel('filename1.xls') # read and load excel sheet in a DF
 ```
