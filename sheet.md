@@ -139,12 +139,11 @@ h = np.copy(a)                      # copy array to new memory
 ```
 
 ### indexing
-
+#### a[start:stop:step]        # general form of indexing/slicing
 ```python
 a[0:3] = 0  (or a[:3]=0) # set the first three indices to zero
 a[2:5] = 1                # set indices 2-4 to 1
-a[:-3] = 2                # set all but last three elements to 2
-a[start:stop:step]        # general form of indexing/slicing
+b[:-3] = 2                # set all but last three elements to 2
 a[[1, 1, 3, -1]]          # return array with values of the indices
 a[a < 2]                  # values with elementwise condition
 a[a > 2] = 0              # set values equal to 0 under condition   
@@ -153,20 +152,20 @@ a[a > 2] = 0              # set values equal to 0 under condition
 ### array properties and operations
 
 ```python
-a.shape                     # a tuple with the lengths of each axis
+a.shape or np.shape(a)      # a tuple with the lengths of each axis
 len(a)                      # length of axis 0 (ie. number of row)
 a.ndim                      # number of dimensions (axes)
-a.sort()                    # sort array along (ie. a2 = np.sort(a))
+a.sort() or np.sort(a)      # sort array along (ie. a2 = np.sort(a))
 x.flatten()                 # collapse array to one dimension
-a = a.reshape(2, 4)         # transform to 2 x 4 matrix
+a.reshape(2, 4)             # transform to 2 x 4 matrix
 a.T                         # return transposed view
 a.tolist()                  # convert (possibly multidimensional) array to list
 np.argmax(a)                # return index of maximum along a given axis
 np.cumsum(a)                # return cumulative sum
-np.any(b)                   # True if any element is True
-np.all(b)                   # True if all elements are True
+np.any([True, False, True]) # True if any element is True
+np.all([True, False, True]) # True if all elements are True
 np.argsort(a)               # return sorted index array along axis
-np.where(cond)              # return indices where cond is True
+np.where(a > 2)             # return indices where cond is True
 np.isin(a,b)                # return true if elements of 'a' are in 'b'
 ```
 
@@ -189,7 +188,7 @@ np.exp(a)          # exponential (complex and real)
 np.sin(a)          # sine (np.cos, np.arcsin, ...)
 np.var(a)          # variance of array
 np.std(a)          # standard deviation
-np.dot(a, b)       # matrix product (inner product: a_mi b_in)
+np.dot(a, a)       # matrix product (inner product: a_mi b_in)
 np.sum(a)          # sum of all numbers in a (np.mean, np.min, np.max, ...)
 np.sum(x, axis=1)  # sum over axis 1 in x        
 np.abs(a)          # return absolute values
