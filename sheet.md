@@ -69,13 +69,13 @@ d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
 
 ```python
 a = {'red': 'rouge', 'blue': 'bleu'}    # dictionary
-b = a['red']                            # call item
-'red' in a                              # true if dictionary a contains key 'red'
-a.keys()                                # get list of keys
-a.values()                              # get list of values
-a.items()                               # get list of key-value pairs
-del a['red']                            # delete key and the associated value
-for k, v in a.items():      # loop through contents and print values
+b = a['red']              # call item
+'red' in a                # true if dictionary a contains key 'red'
+a.keys()                  # get list of keys
+a.values()                # get list of values
+a.items()                 # get list of key-value pairs
+del a['red']              # delete key and the associated value
+for k, v in a.items():    # loop through contents and print values
     print(v)
 ```
 
@@ -120,26 +120,26 @@ os.chdir(another_folder)            # change working directory
 ```python
 a = np.array([3, 1, 4, 1, 5, 9, 2, 6]) # vector, direct initialization
 x = np.array([[2, 7, 1], [8, 2, 8]]) # matrix, direct initialization
-x = np.array([a, a, a])             # matrix, 3 rows
-b = np.zeros(8)                     # vector initialized with 8 zeros
-c = np.ones((3,3))                  # 3 x 3 integer matrix with ones
-d = np.eye(200)                     # ones on the diagonal
-e = np.linspace(0., 10., 100)       # 100 points from 0 to 10
-f = np.arange(0, 100, 2)            # points from 0 to <100 with step 2
-g = np.logspace(-5, 2, 100)         # 100 log-spaced from 1e-5 -> 1e2
-h = np.copy(a)                      # copy array to new memory
+x = np.array([a, a, a])    # matrix, 3 rows
+b = np.zeros(8)            # vector initialized with 8 zeros
+c = np.ones((3,3))         # 3 x 3 integer matrix with ones
+d = np.eye(200)            # ones on the diagonal
+e = np.linspace(0., 10., 100) # 100 points from 0 to 10
+f = np.arange(0, 100, 2)     # points from 0 to <100 with step 2
+g = np.logspace(-5, 2, 100)  # 100 log-spaced from 1e-5 -> 1e2
+h = np.copy(a)               # copy array to new memory
 ```
 
 ### indexing
 #### a[start:stop:step]        # general form of indexing/slicing
 ```python
-a[0:3] = 0          # set the first three indices to zero (or a[:3]=0)
-a[2:5] = 1          # set indices 2-4 to 1
-b[:-3] = 2          # set all but last three elements to 2
-a[[1, 1, 3, -1]]    # return array with values of the indices
-a[a < 2]            # values with elementwise condition
-a[a > 2] = 0        # set values equal to 0 under condition on a
-a[b > 0] = 1        # set values equal to 1 under condition on b
+a[0:3] = 0        # set the first three indices to zero (or a[:3]=0)
+a[2:5] = 1        # set indices 2-4 to 1
+b[:-3] = 2        # set all but last three elements to 2
+a[[1, 1, 3, -1]]  # return array with values of the indices
+a[a < 2]          # values with elementwise condition
+a[a > 2] = 0      # set values equal to 0 under condition on a
+a[b > 0] = 1      # set values equal to 1 under condition on b
 ```
 
 ### array properties and operations
@@ -165,9 +165,9 @@ np.isin(a,b)                # return true if elements of 'a' are in 'b'
 ### boolean arrays
 
 ```python
-a < 2                   # returns array with boolean values
-(a < 2) & (b == 0)      # elementwise logical and
-(a < 2) | (b != 0)      # elementwise logical or
+a < 2                 # returns array with boolean values
+(a < 2) & (b == 0)    # elementwise logical and
+(a < 2) | (b != 0)    # elementwise logical or
 ```
 
 ### math functions
@@ -250,11 +250,11 @@ plt.savefig('out.png', bbox_inches='tight')     # save png image
 ### figures and axes properties
 
 ```python
-plt.title('title')            # figure title
-plt.xlabel('xbla')            # set xlabel
-plt.ylabel('ybla')            # set ylabel
-plt.xlim(0, 2)                # sets x limits
-plt.ylim(0, 4)                # sets y limits
+plt.title('title')        # figure title
+plt.xlabel('xbla')        # set xlabel
+plt.ylabel('ybla')        # set ylabel
+plt.xlim(0, 2)            # sets x limits
+plt.ylim(0, 4)            # sets y limits
 plt.legend(['case A','case B'], loc='best')    # show legend
 ```
 
