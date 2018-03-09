@@ -107,7 +107,7 @@ while number < 10:
     print(number)
     number += 1
 ```
-### operating system interfaces (`import os as os`)
+# operating system interfaces (`import os as os`)
 see https://docs.python.org/3.6/library/os.html#
 ```python
 folder_name = os.getcwd()           # get working directory name
