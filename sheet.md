@@ -68,13 +68,13 @@ d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
 ### Dictionaries
 
 ```python
-a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
-b = a['red']                                 # call item
-'red' in a                                   # true if dictionary a contains key 'red'
-a.keys()                                     # get list of keys
-a.values()                                   # get list of values
-a.items()                                    # get list of key-value pairs
-del a['red']                                 # delete key and the associated value
+a = {'red': 'rouge', 'blue': 'bleu'}    # dictionary
+b = a['red']                            # call item
+'red' in a                              # true if dictionary a contains key 'red'
+a.keys()                                # get list of keys
+a.values()                              # get list of values
+a.items()                               # get list of key-value pairs
+del a['red']                            # delete key and the associated value
 for k, v in a.items():      # loop through contents and print values
     print(v)
 ```
