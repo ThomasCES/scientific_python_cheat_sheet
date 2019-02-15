@@ -25,7 +25,7 @@ abs(a)            # absolute value
 a += 1            # change and assign : a = a + 1 (*=, /=)
 1 == 1            # equal, ask question (= True)
 2 > 1             # larger (= True)
-2 < 1             # smaller(= False)
+2 <= 1             # smaller(= False)
 1 != 2            # not equal
 1 != 2 and 2 < 3  # logical AND
 1 != 2 or 2 < 3   # logical OR
@@ -82,30 +82,31 @@ for k, v in a.items():    # loop through contents and print values
 ### Control Flow : if, for, while
 
 ```python
-# if/elif/else
-a = 1
-b = 2
-if a + b == 3:
-    print('True')
-elif a + b == 1:
-    print('False')
-else:
-    print('?')
-
 # for loop
 a = ['red', 'blue', 'green']
 for i in a:
     print(i)
     
 # for loop (bis)
+resu = []   #create an empty list
 for i in range(0,10):
-    print(i**2)
+    resu.append(i)  #store "i" in the list each loop
+print(resu)
     
-# while
+# while / if / else
 number = 1
-while number < 10:
-    print(number)
-    number += 1
+resu2 = []
+resu3 = []
+while number < 100: 
+    if number % 2 == 0:
+        resu2.append(number)
+        number += 1
+    elif number % 3 == 0:
+        resu3.append(number)
+        number += 1
+    else:
+        number += 1
+    
 ```
 # operating system interfaces (`import os as os`)
 see https://docs.python.org/3.6/library/os.html#
@@ -134,12 +135,12 @@ h = np.copy(a)               # copy array to new memory
 #### a[start:stop:step]        # general form of indexing/slicing
 ```python
 a[0:3] = 0        # set the first three indices to zero (or a[:3]=0)
-a[2:5] = 1        # set indices 2-4 to 1
+a[2:3] = 1        # set indices 3 to 1
 b[:-3] = 2        # set all but last three elements to 2
 a[[1, 1, 3, -1]]  # return array with values of the indices
-a[a < 2]          # values with elementwise condition
+a[a > 2]          # values with elementwise condition
 a[a > 2] = 0      # set values equal to 0 under condition on a
-a[b > 0] = 1      # set values equal to 1 under condition on b
+a[b > 0] = -99    # set values equal to -99 under condition on b
 ```
 
 ### array properties and operations
@@ -290,7 +291,7 @@ a = df.iloc[2,1]                   # get element (index [2,1]) out of DF
 cols = df.columns                  # get list of columns names
 df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
-a = df['B'].mean()                 # compute de mean value of the column 'A' (work with sum(), min(), max()...)
+a = df['B'].mean()                 # compute de mean value of the column 'B' (work with sum(), min(), max()...)
 df2 = df.dropna(axis=1)            # delete "empty" cell of DF
 df2 = df.fillna(value = 99)        # replace "empty" cell by 99 in DF
 df.isnull()                        # detect empty cells in the DF
