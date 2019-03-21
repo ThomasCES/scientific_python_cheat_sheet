@@ -25,7 +25,7 @@ abs(a)            # absolute value
 a += 1            # change and assign : a = a + 1 (*=, /=)
 1 == 1            # equal, ask question (= True)
 2 > 1             # larger (= True)
-2 <= 1             # smaller(= False)
+2 <= 1            # smaller or equal (= False)
 1 != 2            # not equal
 1 != 2 and 2 < 3  # logical AND
 1 != 2 or 2 < 3   # logical OR
@@ -123,7 +123,7 @@ a = np.array([3, 1, 4, 1, 5, 9, 2, 6]) # vector, direct initialization
 x = np.array([[2, 7, 1], [8, 2, 8]]) # matrix, direct initialization
 x = np.array([a, a, a])    # matrix, 3 rows
 b = np.zeros(8)            # vector initialized with 8 zeros
-c = np.ones((3,3))         # 3 x 3 integer matrix with ones
+c = np.ones([3,3])         # 3 x 3 integer matrix with ones
 d = np.eye(200)            # ones on the diagonal
 e = np.linspace(0, 10, 100)  # 100 points from 0 to 10
 f = np.arange(0, 100, 2)     # points from 0 to <100 with step 2
