@@ -60,6 +60,7 @@ a.insert(1, 'yellow')              # insert element in specified position
 'fa' not in ['do', 're', 'mi']     # true if 'fa' not in list
 sorted([3, 2, 1])                  # returns sorted list
 a.remove('red')                    # remove item from list
+len(a)                             # length of the list (or any python object)
 b = list(range(5))                 # initialize from iteratable
 c = [nu**2 for nu in b]            # list comprehension
 d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
@@ -100,12 +101,11 @@ resu3 = []
 while number < 100: 
     if number % 2 == 0:
         resu2.append(number)
-        number += 1
-    elif number % 3 == 0:
+    if number % 3 == 0:
         resu3.append(number)
-        number += 1
     else:
-        number += 1
+        pass
+    number = number+1
     
 ```
 # operating system interfaces (`import os as os`)
@@ -125,7 +125,7 @@ x = np.array([a, a, a])    # matrix, 3 rows
 b = np.zeros(8)            # vector initialized with 8 zeros
 c = np.ones((3,3))         # 3 x 3 integer matrix with ones
 d = np.eye(200)            # ones on the diagonal
-e = np.linspace(0., 10., 100) # 100 points from 0 to 10
+e = np.linspace(0, 10, 100)  # 100 points from 0 to 10
 f = np.arange(0, 100, 2)     # points from 0 to <100 with step 2
 g = np.logspace(-5, 2, 100)  # 100 log-spaced from 1e-5 -> 1e2
 h = np.copy(a)               # copy array to new memory
@@ -147,7 +147,6 @@ a[b > 0] = -99    # set values equal to -99 under condition on b
 
 ```python
 a.shape                     # size of the matrixe (or np.shape(a))
-len(a)                      # length of axis 0 (ie. number of row)
 a.ndim                      # number of dimensions (axes)
 a.sort()                    # sort array along (or a = np.sort(a))
 x.flatten()                 # collapse array to one dimension
@@ -293,6 +292,7 @@ df.isin([1,2])                     # boolean showing if each element in the DF i
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
 a = df['B'].mean()                 # compute de mean value of the column 'B' (work with sum(), min(), max()...)
 df2 = df.dropna(axis=1)            # delete "empty" cell of DF
+df2 = df.drop(columns = ['A'])     # delete column 'A' of DF
 df2 = df.fillna(value = 99)        # replace "empty" cell by 99 in DF
 df.isnull()                        # detect empty cells in the DF
 dfI = df.interpolate(method='time')     # data interpolation (gap completion)
