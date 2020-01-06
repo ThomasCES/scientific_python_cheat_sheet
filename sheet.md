@@ -15,32 +15,31 @@ f = 'word'      # string (or "word")
 ### Operators
 
 ```python
-3 + 2             # addition
-3 / 2             # integer (python2) or float (python3) division
-3 // 2            # integer division (division euclidienne)
-3 * 2             # multiplication
-3 ** 2            # exponent
-3 % 2             # remainder (reste de la division euclidienne)
-abs(a)            # absolute value
-a += 1            # change and assign : a = a + 1 (*=, /=)
-1 == 1            # equal, ask question (= True)
-2 > 1             # larger (= True)
-2 <= 1            # smaller or equal (= False)
-1 != 2            # not equal
-1 != 2 and 2 < 3  # logical AND
-1 != 2 or 2 < 3   # logical OR
-a is b            # test if objects point to the same memory (id)
+x = 3 + 2             # addition
+x = 3 / 2             # integer (python2) or float (python3) division
+x = 3 // 2            # integer division (division euclidienne)
+x = 3 * 2             # multiplication
+x = 3**2              # exponent
+x = 3 % 2             # remainder (reste de la division euclidienne)
+x = a += 1            # change and assign : a = a + 1 (*=, /=)
+x = 1 == 1            # equal, ask question (= True)
+x = 2 > 1             # larger (= True)
+x = 2 <= 1            # smaller or equal (= False)
+x = 1 != 2            # not equal
+x = 1 != 2 and 2 < 3  # logical AND
+x = 1 != 2 or 2 < 3   # logical OR
+x = a is b            # test if objects point to the same memory (id)
 ```
 
 ### Strings
 
 ```python
 a = 'red'                      # assignment
-b = a[2]                       # access individual characters (='d')
-'red ' + 'blue'                # string concatenation ( ='redblue')
-'one,two,three'.split(',')     # split string into list
-'one,two,three'.replace(',','.') # replace character by other one (',' by '.' in the example)
-','.join(['one', 'two', 'three'])  # concatenate list into string
+b = a[1]                       # access individual characters (='d')
+x = 'red ' + 'blue'                # string concatenation ( ='redblue')
+x = 'one,two,three'.split(',')     # split string into list
+x = 'one,two,three'.replace(',','.') # replace character by other one (',' by '.' in the example)
+x = ','.join(['one', 'two', 'three'])  # concatenate list into string
 ```
 
 ### Lists
@@ -53,14 +52,14 @@ f = a[1:2]                         # access a slice of the list
 g = a[-1]                          # access last element
 h = ['re', 'bl'] + ['gr']          # list concatenation
 i = ['re'] * 5                     # repeat a list five time
-['do', 're', 'mi'].index('re')     # returns index of 're'
+x = ['do', 're', 'mi'].index('re')     # returns index of 're'
 a.append('yellow')                 # add new element to end of list
 a.insert(1, 'yellow')              # insert element in specified position
 're' in ['do', 're', 'mi']         # true if 're' in list
 'fa' not in ['do', 're', 'mi']     # true if 'fa' not in list
-sorted([3, 2, 1])                  # returns sorted list
+x = sorted([3, 2, 1])                  # returns sorted list
 a.remove('red')                    # remove item from list
-len(a)                             # length of the list (or any python object)
+x = len(a)                             # length of the list (or any python object)
 b = list(range(5))                 # initialize from iteratable
 c = [nu**2 for nu in b]            # list comprehension
 d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
@@ -121,7 +120,7 @@ os.chdir(another_folder)            # change working directory
 ```python
 a = np.array([3, 1, 4, 1, 5, 9, 2, 6]) # vector, direct initialization
 x = np.array([[2, 7, 1], [8, 2, 8]]) # matrix, direct initialization
-x = np.array([a, a, a])    # matrix, 3 rows
+x1 = np.array([a, a, a])    # matrix, 3 rows
 b = np.zeros(8)            # vector initialized with 8 zeros
 c = np.ones([3,3])         # 3 x 3 integer matrix with ones
 d = np.eye(200)            # ones on the diagonal
@@ -146,46 +145,46 @@ a[b > 0] = -99    # set values equal to -99 under condition on b
 ### array properties and operations
 
 ```python
-a.shape                     # size of the matrixe (or np.shape(a))
-a.ndim                      # number of dimensions (axes)
-a.sort()                    # sort array along (or a = np.sort(a))
-x.flatten()                 # collapse array to one dimension
-a.reshape(2, 4)             # transform to 2 x 4 matrix
-a.T                         # return transposed view
-a.tolist()                  # convert (possibly multidimensional) array to list
-np.argmax(a)                # return index of maximum along a given axis
-np.cumsum(a)                # return cumulative sum
-np.any([True, False, True]) # True if any element is True
-np.all([True, False, True]) # True if all elements are True
-np.argsort(a)               # return sorted index array along axis
-np.where(a > 2)             # return indices where cond is True
-np.isin(a,b)                # return true if elements of 'a' are in 'b'
+x = a.shape                     # size of the matrixe (or np.shape(a))
+x = a.ndim                      # number of dimensions (axes)
+x = a.sort()                    # sort array along (or a = np.sort(a))
+x = x1.flatten()                 # collapse array to one dimension
+x = a.reshape(2, 4)             # transform to 2 x 4 matrix
+x = a.T                         # return transposed view
+x = a.tolist()                  # convert (possibly multidimensional) array to list
+x = np.argmax(a)                # return index of maximum along a given axis
+x = np.cumsum(a)                # return cumulative sum
+x = np.any([True, False, True]) # True if any element is True
+x = np.all([True, False, True]) # True if all elements are True
+x = np.argsort(a)               # return sorted index array along axis
+x = np.where(a > 2)             # return indices where cond is True
+x = np.isin(a,b)                # return true if elements of 'a' are in 'b'
 ```
 
 ### boolean arrays
 
 ```python
-a < 2                 # returns array with boolean values
-(a < 2) & (b == 0)    # elementwise logical and
-(a < 2) | (b != 0)    # elementwise logical or
+x = a < 2                 # returns array with boolean values
+x = (a < 2) & (b == 0)    # elementwise logical and
+x = (a < 2) | (b != 0)    # elementwise logical or
 ```
 
 ### math functions
 
 ```python
-a * 5              # multiplication with scalar
-a + 5              # addition with scalar
-a + b              # addition with array b
-a / b              # division with b (np.NaN for division by zero)
-np.exp(a)          # exponential (complex and real)
-np.sin(a)          # sine (np.cos, np.arcsin, ...)
-np.var(a)          # variance of array
-np.std(a)          # standard deviation
-np.dot(a, a)       # matrix product (inner product: a_mi b_in)
-np.sum(a)          # sum of all numbers in a (np.mean, np.min, np.max, ...)
-np.sum(x, axis=1)  # sum over axis 1 in x        
-np.abs(a)          # return absolute values
-np.round(a)        # rounds to neares int
+x = a * 5              # multiplication with scalar
+x = a + 5              # addition with scalar
+x = a + b              # addition with array b
+x = a / b              # division with b (np.inf for division by zero)
+x = np.exp(a)          # exponential (complex and real)
+x = np.sin(a)          # sine (np.cos, np.arcsin, ...)
+x = np.var(a)          # variance of array
+x = np.std(a)          # standard deviation
+x = np.dot(a, a)       # matrix product (inner product: a_mi b_in)
+x = np.sum(a)          # sum of all numbers in a (np.mean, np.min, np.max, ...)
+x = np.sum(x, axis=1)  # sum over axis 1 in x        
+x = np.abs(a)          # return absolute values
+x = np.round(a)        # rounds to neares int
 ```
 
 ### linear algebra/ matrix math
@@ -219,8 +218,8 @@ np.linalg.eigvals(a)      # compute the eigenvalues of a
 xx = np.random.rand(100)                      # 100 random numbers in [0, 1]
 yy = np.random.uniform(1, 42, 100)            # 100 random numbers in [1, 42]
 zz = np.random.randint(1, 42, [100,  100])    # 100 random integers in [1, 42]
-np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list with p probability
-np.random.normal(loc=0, scale=2, size=100)    # 100 normal distributed
+x = np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list with p probability
+x = np.random.normal(loc=0, scale=2, size=100)    # 100 normal distributed
 ```
 
 # Functions
@@ -236,7 +235,7 @@ def myfunc(x, a, b):
 x = np.arange(0,100,1)
 a = 0.33
 b = -45
-(y, z) = myfunc(x, a, b)  #call "myfunc"
+y, z = myfunc(x, a, b)  #call "myfunc"
 ```
 # Matplotlib (`import matplotlib.pyplot as plt`)
 ### figures and axes
