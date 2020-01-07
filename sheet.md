@@ -28,14 +28,13 @@ x = 2 <= 1            # smaller or equal (= False)
 x = 1 != 2            # not equal
 x = 1 != 2 and 2 < 3  # logical AND
 x = 1 != 2 or 2 < 3   # logical OR
-x = a is b            # test if objects point to the same memory (id)
 ```
 
 ### Strings
 
 ```python
-a = 'red'                      # assignment
-b = a[1]                       # access individual characters (='d')
+a = 'orange'                   # assignment
+b = a[4]                       # access individual characters (='g')
 x = 'red ' + 'blue'                # string concatenation ( ='redblue')
 x = 'one,two,three'.split(',')     # split string into list
 x = 'one,two,three'.replace(',','.') # replace character by other one (',' by '.' in the example)
@@ -192,7 +191,7 @@ x = np.round(a)        # rounds to neares int
 ```python
 evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
 coef = np.polyfit(x,y,2)          # return values of polynomial factors (2nd order in the example)
-coef = np.corrcoef(x,y)           # return correlation coefficients (R and not R² like Excel)
+coef = np.corrcoef(y_ref,y_model) # return correlation coefficients (R and not R² like Excel)
 ```
 
 ### reading/ writing files
@@ -225,7 +224,7 @@ x = np.random.normal(loc=0, scale=2, size=100)    # 100 normal distributed
 # Functions
 
 ```python
-# Function to compute simple polynom
+# Function to compute polynoms
 import numpy as np
 def myfunc(x, a, b):
     y = a * x + b
@@ -250,8 +249,8 @@ plt.savefig('out.png', bbox_inches='tight')     # save png image
 
 ```python
 plt.title('title')        # figure title
-plt.xlabel('xbla')        # set xlabel
-plt.ylabel('ybla')        # set ylabel
+plt.xlabel('time (°C)')   # set xlabel
+plt.ylabel('power (kW)')  # set ylabel
 plt.xlim(0, 2)            # sets x limits
 plt.ylim(0, 4)            # sets y limits
 plt.legend(['case A','case B'], loc='best')    # show legend
@@ -261,9 +260,12 @@ plt.legend(['case A','case B'], loc='best')    # show legend
 see http://matplotlib.org/gallery.html
 
 ```python
+x = np.arange(0,100,0.1)
+y = np.sin(x)
+plt.plot(x, y)
 plt.plot(x, y, '-o', c='red', lw=2)              # plots a line
-plt.bar(x,y)                                     # plot bars
-plt.hist(xx, bins=50)                            # histogram
+plt.bar(range(7),[5,5,8,6,9,2,3])                # plot bars
+plt.hist(y, bins=20)                             # histogram
 plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
 plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
 plt.contour(xx, yy, zz, cmap='jet')              # contour lines
