@@ -288,6 +288,7 @@ print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
 a = df.iloc[2,1]                   # get element (index [2,1]) out of DF
+a = df.iloc[0:3,1:3]               # get range of elements out of DF
 cols = df.columns                  # get list of columns names
 df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
 df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
