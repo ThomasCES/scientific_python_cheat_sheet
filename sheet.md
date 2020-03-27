@@ -21,7 +21,7 @@ x = 3 // 2            # integer division (division euclidienne)
 x = 3 * 2             # multiplication
 x = 3**2              # exponent
 x = 3 % 2             # remainder (reste de la division euclidienne)
-x = a += 1            # change and assign : a = a + 1 (*=, /=)
+a += 1                # change and assign : a = a + 1 (*=, /=)
 x = 1 == 1            # equal, ask question (= True)
 x = 2 > 1             # larger (= True)
 x = 2 <= 1            # smaller or equal (= False)
