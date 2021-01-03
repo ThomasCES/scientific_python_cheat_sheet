@@ -47,7 +47,7 @@ x = ','.join(['one', 'two', 'three'])  # concatenate list into string
 a = []                             # create empty list (or a = list())
 a = ['red', 'blue', 'green']       # manually initialization
 e = a[0]                           # access first element
-f = a[1:2]                         # access a slice of the list
+f = a[0:2]                         # access a slice of the list
 g = a[-1]                          # access last element
 h = ['re', 'bl'] + ['gr']          # list concatenation
 i = ['re'] * 5                     # repeat a list five time
@@ -133,7 +133,7 @@ h = np.copy(a)               # copy array to new memory
 #### a[start:stop:step]        # general form of indexing/slicing
 ```python
 a[0:3] = 0        # set the first three indices to zero (or a[:3]=0)
-a[2:3] = 1        # set indices 3 to 1
+a[2] = 1          # set indices 3 to 1 (or a[2:3] = 1)
 b[:-3] = 2        # set all but last three elements to 2
 a[[1, 1, 3, -1]]  # return array with values of the indices
 a[a > 2]          # values with elementwise condition
@@ -147,7 +147,7 @@ a[b > 0] = -99    # set values equal to -99 under condition on b
 x = a.shape                     # size of the matrixe (or np.shape(a))
 x = a.ndim                      # number of dimensions (axes)
 x = a.sort()                    # sort array along (or a = np.sort(a))
-x = x1.flatten()                 # collapse array to one dimension
+x = x1.flatten()                # collapse array to one dimension
 x = a.reshape(2, 4)             # transform to 2 x 4 matrix
 x = a.T                         # return transposed view
 x = a.tolist()                  # convert (possibly multidimensional) array to list
@@ -156,7 +156,7 @@ x = np.cumsum(a)                # return cumulative sum
 x = np.any([True, False, True]) # True if any element is True
 x = np.all([True, False, True]) # True if all elements are True
 x = np.argsort(a)               # return sorted index array along axis
-x = np.where(a > 2)             # return indices where cond is True
+x = np.where(x1 < 2, x1, x1*2)  # return indices where cond is True
 x = np.isin(a,b)                # return true if elements of 'a' are in 'b'
 ```
 
@@ -283,7 +283,7 @@ ax.specgram(y, FS=0.1, noverlap=128,
 df = pd.DataFrame()                # create an empty DataFrame
 df['A'] = [0, 1, 'lundi', 3, 4]    # store list in 'A' column
 df['B'] = np.arange(5)             # store array in 'B' column
-df['C'] = [0, 1, np.nan, 3, 4]     # store list in 'C' column with empty cell
+df['C'] = [0, 1, np.nan, 3, 4]     # store list in 'C' column with an empty cell (ei. np.nan)
 print(df[:2])                      # print first 2 lines of the DF
 a = df.values                      # get data out of DF
 a = df['A'].values                 # get the 'A' column out of DF
