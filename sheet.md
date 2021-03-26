@@ -320,7 +320,7 @@ data2 = pd.read_excel('filename1.xls') # read and load excel sheet in a DF
 #	sympy -> formal calculus
 #	deap, pyevolve -> genetic algorithm
 #	time -> read computer time
-#  multiprocessing -> calculs parallèles
+#	multiprocessing -> calculs parallèles
 #	requests -> internet access from python
 #	csv, json -> read csv and json files (without pandas)
 #	itertools -> combination, permutation
