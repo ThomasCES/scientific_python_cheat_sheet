@@ -132,16 +132,16 @@ h = np.copy(a)               # copy array to new memory
 ### indexing
 #### a[start:stop:step]        # general form of indexing/slicing
 ```python
-z = a[0]          # store the first element of a in z
-z = a[0:4]        # store the first four elemnts of a in z
-z = a[-1]         # store the last element of a in z
-z = a[[1, 1, 3, -1]]  # store elements 1,1,3,-1 of a in z
+z = a[0]          # store the first element of a in "z"
+z = a[0:4]        # store the first four elemnts of "a" in ""z
+z = a[-1]         # store the last element of "a" in "z"
+z = a[[1, 1, 3, -1]]  # store elements 1,1,3,-1 of "a" in "z"
 a[0:3] = 0        # set the first three indices to zero (or a[:3]=0)
 a[2] = 1          # set indice 3 to 1 (or a[2:3] = 1)
 b[:-3] = 2        # set all but last three elements to 2
-a[a > 2]          # values with elementwise condition
-a[a > 2] = 0      # set values equal to 0 under condition on a
-a[b > 0] = -99    # set values equal to -99 under condition on b
+z = a[a > 2]      #  store values of "a" in "z" under condition 
+a[a > 2] = 0      # set values equal to 0 under condition on "a"
+a[b > 0] = -99    # set values equal to -99 under condition on "b"
 ```
 
 ### array properties and operations
