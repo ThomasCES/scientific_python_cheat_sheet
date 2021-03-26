@@ -316,3 +316,15 @@ df.to_csv('filename2.csv')          # save DF in text file
 data1 = pd.read_csv('filename2.csv', sep=',', skiprows=0)   # read and load CSV (or .txt) file in a DF
 data2 = pd.read_excel('filename1.xls') # read and load excel sheet in a DF
 ```
+# Other interesting Package:
+•	scipy -> optimization, linear algebra, statistics,…
+•	scikit-learn, tensorflow -> machine learning
+•	pylearn2, sklearn_theano -> neural network 
+•	statsmodels -> statistic models (regressions, arx, …)
+•	sympy -> formal calculus
+•	deap, pyevolve -> genetic algorithm
+•	time -> read computer time
+•	multiprocessing -> calculs parallèles
+•	requests -> internet access from python
+•	csv, json -> read csv and json files (without pandas)
+•	itertools -> combination, permutation
