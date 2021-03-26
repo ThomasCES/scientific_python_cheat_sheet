@@ -1,7 +1,7 @@
 Scientific Python Cheatsheet
 ============================
 
-# Pure Python
+## Pure Python
 ### Types
 
 ```python
@@ -106,14 +106,14 @@ while number < 100: # (same as "for number in range(100):")
     number = number+1
     
 ```
-# operating system interfaces (`import os as os`)
+## operating system interfaces (`import os as os`)
 see https://docs.python.org/3.6/library/os.html#
 ```python
 folder_name = os.getcwd()           # get working directory name
 file_name = os.listdir(folder_name) # list of all files in folder
 # os.chdir(another_folder)            # change working directory
 ```
-# NumPy (`import numpy as np`)
+## NumPy (`import numpy as np`)
 ### array initialization
 
 ```python
@@ -221,7 +221,7 @@ x = np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in
 x = np.random.normal(loc=0, scale=2, size=100)    # 100 normal distributed
 ```
 
-# Functions
+### Functions
 
 ```python
 # Function to compute polynoms
@@ -236,7 +236,7 @@ a = 0.33
 b = -45
 y, z = myfunc(x, a, b)  #call "myfunc"
 ```
-# Matplotlib (`import matplotlib.pyplot as plt`)
+## Matplotlib (`import matplotlib.pyplot as plt`)
 ### figures and axes (option)
 ```python
 plt.figure(1)  # initialize figure
@@ -267,20 +267,16 @@ plt.figure(3)
 plt.bar(range(7),[5,5,8,6,9,2,3])                # plot bars
 plt.figure(4)
 plt.hist(y, bins=20)                             # histogram
-''' 
-#(option)
-plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
-plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
-plt.contour(xx, yy, zz, cmap='jet')              # contour lines
-plt.boxplot(matrix, showfliers=True)  # distribution of data based on quartile and median 
-plt.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2),
-        interpolation='bilinear', aspect='auto') # image (carpet plot, heat map)
-ax.specgram(y, FS=0.1, noverlap=128,
-            scale='linear')                      # spectrogram
-'''
+# plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
+# plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
+# plt.contour(xx, yy, zz, cmap='jet')              # contour lines
+# plt.boxplot(matrix, showfliers=True)  # distribution of data based on quartile and median 
+# plt.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2), 
+#                   interpolation='bilinear', aspect='auto') # image (carpet plot, heat map)
+# ax.specgram(y, FS=0.1, noverlap=128, scale='linear')  # spectrogram
 ```
 
-# Pandas (`import pandas as pd`)
+## Pandas (`import pandas as pd`)
 
 ### DataFrame (DF)
 ```python
@@ -314,7 +310,7 @@ df.to_csv('filename2.csv')          # save DF in text file
 data1 = pd.read_csv('filename2.csv', sep=',', skiprows=0)   # read and load CSV (or .txt) file
 data2 = pd.read_excel('filename1.xls') # read and load excel sheet in a DF
 ```
-# Other interesting Package:
+## Other interesting Package:
 ```python
 #	scipy -> optimization, linear algebra, statistics,…
 #	scikit-learn, tensorflow -> machine learning
