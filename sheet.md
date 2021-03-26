@@ -65,7 +65,8 @@ b = list(range(5))                 # initialize from iteratable
 '''
 ```
 
-### Dictionaries
+### Dictionaries (option)
+```python
 a = {'red': 'rouge', 'blue': 'bleu'}    # dictionary
 b = a['red']              # call item
 'red' in a                # true if dictionary a contains key 'red'
@@ -74,8 +75,8 @@ a.values()                # get list of values
 a.items()                 # get list of key-value pairs
 del a['red']              # delete key and the associated value
 for k, v in a.items():    # loop through contents and print values
-    print(v)
-
+   print(v)
+```
 ### Control Flow : if, for, while
 
 ```python
@@ -187,26 +188,26 @@ x = np.var(a)          # variance of array
 ```
 
 ### linear algebra/ matrix math (option)
-
+```python
 evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
 coef = np.polyfit(x,y,2)          # return values of polynomial factors (2nd order in the example)
 coef = np.corrcoef(y_ref,y_model) # return correlation coefficients (R and not R² like Excel)
-
+```
 
 ### reading/ writing files (option)
-
+```python
 np.savetxt('data.txt', x , fmt='%1.4e', delimiter=';')     # write 'x' in ascii data
 data = np.loadtxt('data.txt', skiprows=0, delimiter=';')   # load ascii data from file
-
+```
 
 ### interpolation, integration, optimization (option)
-
+```python
 np.trapz(a, x=x, axis=1)  # integrate along axis 1
 np.interp(x, xp, yp)      # interpolate function xp, yp at points x
 np.linalg.lstsq(a, b)     # solve a x = b in least square sense
 np.linalg.det(a)          # compute the determinant of a (n,n)
 np.linalg.eigvals(a)      # compute the eigenvalues of a
-
+```
 
 ### random variables (option)
 
@@ -234,19 +235,21 @@ y, z = myfunc(x, a, b)  #call "myfunc"
 ```
 # Matplotlib (`import matplotlib.pyplot as plt`)
 ### figures and axes (option)
+```python
 plt.figure(1)  # initialize figure
 fig, axes = plt.subplots(5, 2, figsize=(5, 5))  # figure with 10 plots and 5 x 2 axes
 plt.savefig('out.png', bbox_inches='tight')     # save png image
-
+```
 
 ### figures and axes properties (option)
+```python
 plt.title('title')        # figure title
 plt.xlabel('time (°C)')   # set xlabel
 plt.ylabel('power (kW)')  # set ylabel
 plt.xlim(0, 2)            # sets x limits
 plt.ylim(0, 4)            # sets y limits
 plt.legend(['case A','case B'], loc='best')    # show legend
-
+```
 ### plotting 
 see http://matplotlib.org/gallery.html
 
@@ -302,11 +305,12 @@ df.isnull()                        # detect empty cells in the DF
 ```
 
 ### read/write data (option)
+```python
 df.to_excel('filename1.xls')        # save DF in Excel file
 df.to_csv('filename2.csv')          # save DF in text file
 data1 = pd.read_csv('filename2.csv', sep=',', skiprows=0)   # read and load CSV (or .txt) file in a DF
 data2 = pd.read_excel('filename1.xls') # read and load excel sheet in a DF
-
+```
 # Other interesting Package:
 •	scipy -> optimization, linear algebra, statistics,…
 •	scikit-learn, tensorflow -> machine learning
