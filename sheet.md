@@ -37,7 +37,8 @@ a = 'orange'                   # assignment
 b = a[4]                       # access individual characters (='g')
 x = 'red ' + 'blue'                # string concatenation ( ='redblue')
 x = 'one,two,three'.split(',')     # split string into list
-x = 'one,two,three'.replace(',','.') # replace character by other one (',' by '.' in the example)
+x = 'one,two,three'.replace(',','.') # replace character by other one 
+                                     #(',' by '.' in the example)
 # x = ','.join(['one', 'two', 'three'])  # concatenate list into string
 ```
 
@@ -58,7 +59,7 @@ a.insert(1, 'yellow')              # insert element in specified position
 'fa' not in ['do', 're', 'mi']     # true if 'fa' not in list
 x = sorted([3, 2, 1])                  # returns sorted list
 a.remove('red')                    # remove item from list
-x = len(a)                             # length of the list (or any python object)
+x = len(a)                         # length of the list (or any object)
 b = list(range(5))                 # initialize from iteratable
 # c = [nu**2 for nu in b]            # list comprehension
 # d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
@@ -109,7 +110,7 @@ while number < 100: # (same as "for number in range(100):")
 see https://docs.python.org/3.6/library/os.html#
 ```python
 folder_name = os.getcwd()           # get working directory name
-file_name = os.listdir(folder_name) # list of all the files in folder
+file_name = os.listdir(folder_name) # list of all files in folder
 # os.chdir(another_folder)            # change working directory
 ```
 # NumPy (`import numpy as np`)
@@ -150,7 +151,7 @@ x = a.sort()                    # sort array along (or a = np.sort(a))
 x = x1.flatten()                # collapse array to one dimension
 x = a.reshape(2, 4)             # transform to 2 x 4 matrix
 x = a.T                         # return transposed view
-x = a.tolist()                  # convert (possibly multidimensional) array to list
+x = a.tolist()                  # convert array to list
 x = np.argmax(a)                # return index of maximum along a given axis
 # x = np.cumsum(a)                # return cumulative sum
 # x = np.any([True, False, True]) # True if any element is True
@@ -190,14 +191,15 @@ x = np.var(a)          # variance of array
 ### linear algebra/ matrix math (option)
 ```python
 evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
-coef = np.polyfit(x,y,2)          # return values of polynomial factors (2nd order in the example)
+coef = np.polyfit(x,y,2)          # return values of polynomial factors 
+                                  #(2nd order in the example)
 coef = np.corrcoef(y_ref,y_model) # return correlation coefficients (R and not R² like Excel)
 ```
 
 ### reading/ writing files (option)
 ```python
-np.savetxt('data.txt', x , fmt='%1.4e', delimiter=';')     # write 'x' in ascii data
-data = np.loadtxt('data.txt', skiprows=0, delimiter=';')   # load ascii data from file
+np.savetxt('data.txt', x , fmt='%1.4e')     # write 'x' in ascii data
+data = np.loadtxt('data.txt', skiprows=0)   # load ascii data from file
 ```
 
 ### interpolation, integration, optimization (option)
@@ -214,7 +216,8 @@ np.linalg.eigvals(a)      # compute the eigenvalues of a
 xx = np.random.rand(100)                      # 100 random numbers in [0, 1]
 yy = np.random.uniform(1, 42, 100)            # 100 random numbers in [1, 42]
 zz = np.random.randint(1, 42, [100,  100])    # 100 random integers in [1, 42]
-x = np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list with p probability
+x = np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list 
+                                                  #with p probability
 x = np.random.normal(loc=0, scale=2, size=100)    # 100 normal distributed
 ```
 
@@ -269,7 +272,7 @@ plt.hist(y, bins=20)                             # histogram
 plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
 plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
 plt.contour(xx, yy, zz, cmap='jet')              # contour lines
-plt.boxplot(matrix, showfliers=True)             # distribution of data based on the first quartile, median, third quartile 
+plt.boxplot(matrix, showfliers=True)  # distribution of data based on quartile and median 
 plt.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2),
         interpolation='bilinear', aspect='auto') # image (carpet plot, heat map)
 ax.specgram(y, FS=0.1, noverlap=128,
@@ -291,9 +294,9 @@ a = df['A'].values                 # get the 'A' column out of DF
 a = df.iloc[2,1]                   # get element (index [2,1]) out of DF
 a = df.iloc[0:3,1:3]               # get range of elements out of DF
 cols = df.columns                  # get list of columns names
-df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
-df2 = df[df['B'] > 2]             # create a new DF by selecting raws under condition
-a = df['B'].mean()                 # compute de mean value of the column 'B' (work with sum(), min(), max()...)
+df.isin([1,2])           # boolean showing if each element in the DF is contained in the list
+df2 = df[df['B'] > 2]    # create a new DF by selecting raws under condition
+a = df['B'].mean()       # compute de mean value of the column 'B' (work with sum(), min(), max())
 df2 = df.dropna(axis=1)            # delete "empty" cell of DF
 df2 = df.drop(columns = ['A'])     # delete column 'A' of DF
 df2 = df.fillna(value = 99)        # replace "empty" cell by 99 in DF
@@ -308,7 +311,7 @@ df.isnull()                        # detect empty cells in the DF
 ```python
 df.to_excel('filename1.xls')        # save DF in Excel file
 df.to_csv('filename2.csv')          # save DF in text file
-data1 = pd.read_csv('filename2.csv', sep=',', skiprows=0)   # read and load CSV (or .txt) file in a DF
+data1 = pd.read_csv('filename2.csv', sep=',', skiprows=0)   # read and load CSV (or .txt) file
 data2 = pd.read_excel('filename1.xls') # read and load excel sheet in a DF
 ```
 # Other interesting Package:
