@@ -8,7 +8,7 @@ Scientific Python Cheatsheet
 a = 2           # integer
 b = 5.0         # float
 c = 8.3e5       # = 8.3 * 10**5
-d = 1.5 + 0.5j  # complex
+# d = 1.5 + 0.5j  # complex
 e = True        # boolean (or False)
 f = 'word'      # string (or "word")
 ```
@@ -38,7 +38,7 @@ b = a[4]                       # access individual characters (='g')
 x = 'red ' + 'blue'                # string concatenation ( ='redblue')
 x = 'one,two,three'.split(',')     # split string into list
 x = 'one,two,three'.replace(',','.') # replace character by other one (',' by '.' in the example)
-x = ','.join(['one', 'two', 'three'])  # concatenate list into string
+# x = ','.join(['one', 'two', 'three'])  # concatenate list into string
 ```
 
 ### Lists
@@ -60,13 +60,15 @@ x = sorted([3, 2, 1])                  # returns sorted list
 a.remove('red')                    # remove item from list
 x = len(a)                             # length of the list (or any python object)
 b = list(range(5))                 # initialize from iteratable
-c = [nu**2 for nu in b]            # list comprehension
-d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
+# c = [nu**2 for nu in b]            # list comprehension
+# d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
+'''
 ```
 
 ### Dictionaries
 
 ```python
+'''
 a = {'red': 'rouge', 'blue': 'bleu'}    # dictionary
 b = a['red']              # call item
 'red' in a                # true if dictionary a contains key 'red'
@@ -76,6 +78,7 @@ a.items()                 # get list of key-value pairs
 del a['red']              # delete key and the associated value
 for k, v in a.items():    # loop through contents and print values
     print(v)
+'''
 ```
 
 ### Control Flow : if, for, while
