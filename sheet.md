@@ -96,7 +96,7 @@ print(resu)
 number = 1
 resu2 = []
 resu3 = []
-while number < 100: 
+while number < 100: # (same as "for number in range(100):")
     if number % 2 == 0:
         resu2.append(number)
     if number % 3 == 0:
@@ -132,10 +132,13 @@ h = np.copy(a)               # copy array to new memory
 ### indexing
 #### a[start:stop:step]        # general form of indexing/slicing
 ```python
+z = a[0]          # store the first element of a in z
+z = a[0:4]        # store the first four elemnts of a in z
+z = a[-1]         # store the last element of a in z
+z = a[[1, 1, 3, -1]]  # store elements 1,1,3,-1 of a in z
 a[0:3] = 0        # set the first three indices to zero (or a[:3]=0)
-a[2] = 1          # set indices 3 to 1 (or a[2:3] = 1)
+a[2] = 1          # set indice 3 to 1 (or a[2:3] = 1)
 b[:-3] = 2        # set all but last three elements to 2
-a[[1, 1, 3, -1]]  # return array with values of the indices
 a[a > 2]          # values with elementwise condition
 a[a > 2] = 0      # set values equal to 0 under condition on a
 a[b > 0] = -99    # set values equal to -99 under condition on b
@@ -145,7 +148,6 @@ a[b > 0] = -99    # set values equal to -99 under condition on b
 
 ```python
 x = a.shape                     # size of the matrixe (or np.shape(a))
-x = a.ndim                      # number of dimensions (axes)
 x = a.sort()                    # sort array along (or a = np.sort(a))
 x = x1.flatten()                # collapse array to one dimension
 x = a.reshape(2, 4)             # transform to 2 x 4 matrix
@@ -156,7 +158,7 @@ x = np.cumsum(a)                # return cumulative sum
 x = np.any([True, False, True]) # True if any element is True
 x = np.all([True, False, True]) # True if all elements are True
 x = np.argsort(a)               # return sorted index array along axis
-x = np.where(x1 < 2, x1, x1*2)  # return indices where cond is True
+x = np.where(x1 < 2, x1, x1*2)  # x = x1 if condition is True and x1*2 if False
 x = np.isin(a,b)                # return true if elements of 'a' are in 'b'
 ```
 
@@ -181,7 +183,7 @@ x = np.var(a)          # variance of array
 x = np.std(a)          # standard deviation
 x = np.dot(a, a)       # matrix product (inner product: a_mi b_in)
 x = np.sum(a)          # sum of all numbers in a (np.mean, np.min, np.max, ...)
-x = np.sum(x, axis=1)  # sum over axis 1 in x        
+x = np.sum(x1, axis=1) # sum over axis 1 in x (try with axis = 0)       
 x = np.abs(a)          # return absolute values
 x = np.round(a)        # rounds to neares int
 ```
@@ -262,9 +264,13 @@ see http://matplotlib.org/gallery.html
 ```python
 x = np.arange(0,100,0.1)
 y = np.sin(x)
+plt.figure(1)
 plt.plot(x, y)
+plt.figure(2)
 plt.plot(x, y, '-o', c='red', lw=2)              # plots a line
+plt.figure(3)
 plt.bar(range(7),[5,5,8,6,9,2,3])                # plot bars
+plt.figure(4)
 plt.hist(y, bins=20)                             # histogram
 plt.scatter(xx , yy, s=20, c = 'black')          # scatter plot
 plt.pcolormesh(xx, yy, zz, shading='gouraud')    # colormesh
@@ -291,7 +297,7 @@ a = df.iloc[2,1]                   # get element (index [2,1]) out of DF
 a = df.iloc[0:3,1:3]               # get range of elements out of DF
 cols = df.columns                  # get list of columns names
 df.isin([1,2])                     # boolean showing if each element in the DF is contained in the list
-df2 = df[df['A'] == 0]             # create a new DF by selecting raws under condition
+df2 = df[df['B'] > 2]             # create a new DF by selecting raws under condition
 a = df['B'].mean()                 # compute de mean value of the column 'B' (work with sum(), min(), max()...)
 df2 = df.dropna(axis=1)            # delete "empty" cell of DF
 df2 = df.drop(columns = ['A'])     # delete column 'A' of DF
