@@ -210,13 +210,13 @@ np.linalg.eigvals(a)      # compute the eigenvalues of a
 ```
 
 ### random variables (option)
-
+```python
 xx = np.random.rand(100)                      # 100 random numbers in [0, 1]
 yy = np.random.uniform(1, 42, 100)            # 100 random numbers in [1, 42]
 zz = np.random.randint(1, 42, [100,  100])    # 100 random integers in [1, 42]
 x = np.random.choice([0, 1], 100, p=[0.1, 0.9])   # 100 random numbers choose in a list with p probability
 x = np.random.normal(loc=0, scale=2, size=100)    # 100 normal distributed
-
+```
 
 # Functions
 
@@ -312,14 +312,16 @@ data1 = pd.read_csv('filename2.csv', sep=',', skiprows=0)   # read and load CSV 
 data2 = pd.read_excel('filename1.xls') # read and load excel sheet in a DF
 ```
 # Other interesting Package:
-•	scipy -> optimization, linear algebra, statistics,…
-•	scikit-learn, tensorflow -> machine learning
-•	pylearn2, sklearn_theano -> neural network 
-•	statsmodels -> statistic models (regressions, arx, …)
-•	sympy -> formal calculus
-•	deap, pyevolve -> genetic algorithm
-•	time -> read computer time
-•	multiprocessing -> calculs parallèles
-•	requests -> internet access from python
-•	csv, json -> read csv and json files (without pandas)
-•	itertools -> combination, permutation
+```python
+#	scipy -> optimization, linear algebra, statistics,…
+#	scikit-learn, tensorflow -> machine learning
+#	pylearn2, sklearn_theano -> neural network 
+#	statsmodels -> statistic models (regressions, arx, …)
+#	sympy -> formal calculus
+#	deap, pyevolve -> genetic algorithm
+#	time -> read computer time
+#  multiprocessing -> calculs parallèles
+#	requests -> internet access from python
+#	csv, json -> read csv and json files (without pandas)
+#	itertools -> combination, permutation
+```
