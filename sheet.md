@@ -63,7 +63,6 @@ x = len(a)                         # length of the list (or any object)
 b = list(range(5))                 # initialize from iteratable
 # c = [nu**2 for nu in b]            # list comprehension
 # d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
-'''
 ```
 
 ### Dictionaries (option)
