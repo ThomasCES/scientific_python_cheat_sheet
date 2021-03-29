@@ -65,7 +65,7 @@ b = list(range(5))                 # initialize from iteratable
 # d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
 ```
 
-### Dictionaries (option)
+### Dictionaries (!option!)
 ```python
 a = {'red': 'rouge', 'blue': 'bleu'}    # dictionary
 b = a['red']              # call item
@@ -187,7 +187,7 @@ x = np.var(a)          # variance of array
 # x = np.round(a)        # rounds to neares int
 ```
 
-### linear algebra/ matrix math <span style="color:red">red</span> (option)
+### linear algebra (!option!)
 ```python
 evals, evecs = np.linalg.eig(a)   # find eigenvalues and eigenvectors
 coef = np.polyfit(x,y,2)          # return values of polynomial factors 
@@ -195,13 +195,13 @@ coef = np.polyfit(x,y,2)          # return values of polynomial factors
 coef = np.corrcoef(y_ref,y_model) # return correlation coefficients (R and not R² like Excel)
 ```
 
-### reading/ writing files (option)
+### reading/ writing files (!option!)
 ```python
 np.savetxt('data.txt', x , fmt='%1.4e')     # write 'x' in ascii data
 data = np.loadtxt('data.txt', skiprows=0)   # load ascii data from file
 ```
 
-### interpolation, integration, optimization (option)
+### interpolation, integration, optimization (!option!)
 ```python
 np.trapz(a, x=x, axis=1)  # integrate along axis 1
 np.interp(x, xp, yp)      # interpolate function xp, yp at points x
@@ -210,7 +210,7 @@ np.linalg.det(a)          # compute the determinant of a (n,n)
 np.linalg.eigvals(a)      # compute the eigenvalues of a
 ```
 
-### random variables (option)
+### random variables (!option!)
 ```python
 xx = np.random.rand(100)                      # 100 random numbers in [0, 1]
 yy = np.random.uniform(1, 42, 100)            # 100 random numbers in [1, 42]
@@ -236,14 +236,14 @@ b = -45
 y, z = myfunc(x, a, b)  #call "myfunc"
 ```
 ## Matplotlib (`import matplotlib.pyplot as plt`)
-### figures and axes (option)
+### figures and axes (!option!)
 ```python
 plt.figure(1)  # initialize figure
 fig, axes = plt.subplots(5, 2, figsize=(5, 5))  # figure with 10 plots and 5 x 2 axes
 plt.savefig('out.png', bbox_inches='tight')     # save png image
 ```
 
-### figures and axes properties (option)
+### figures and axes properties (!option!)
 ```python
 plt.title('title')        # figure title
 plt.xlabel('time (°C)')   # set xlabel
@@ -302,7 +302,7 @@ df.isnull()                        # detect empty cells in the DF
 # df.plot()              # use matplotlib to plot the DF (many options!)
 ```
 
-### read/write data (option)
+### read/write data (!option!)
 ```python
 df.to_excel('filename1.xls')        # save DF in Excel file
 df.to_csv('filename2.csv')          # save DF in text file
